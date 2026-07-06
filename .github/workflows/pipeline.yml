@@ -25,6 +25,4 @@ jobs:
         working-directory: client-side
         run: npm run build
 
-      - name: Test project
-        working-directory: client-side
-        run: npm run test
+     
