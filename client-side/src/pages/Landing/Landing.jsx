@@ -1,16 +1,135 @@
 import './Landing.scss';
 import NavBar from '../../componets/NavBar/NavBar';
-
+import images from '../../componets/containers/container'
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 const Landing =()=>{
-    return(
+   useGSAP(() => {
+  const tl = gsap.timeline({
+    defaults: {
+      ease: "power2.out"
+    }
+  });
+
+  tl.from(".bun-bottom", {
+    y: -900,
+    x: -50,
+    rotation: -20,
+    opacity: 0,
+    duration: 0.8,
+    ease: "bounce.out"
+  })
+
+  .from(".lettuce", {
+    y: -850,
+    x: 40,
+    rotation: 15,
+    opacity: 0,
+    duration: 0.65,
+    ease: "bounce.out"
+  }, "-=0.45")
+
+  
+  .from(".meat", {
+      y: -830,
+      x: -35,
+      rotation: -10,
+      opacity: 0,
+      duration: 0.6,
+      ease: "bounce.out"
+    }, "-=0.4")
+    .from(".cheese", {
+      y: -820,
+      x: -30,
+      rotation: -15,
+      opacity: 0,
+      duration: 0.65,
+      ease: "bounce.out"
+    }, "-=0.42")
+  
+    .from(".patty", {
+      y: -950,
+      x: 20,
+      rotation: 8,
+      opacity: 0,
+      duration: 0.75,
+      ease: "bounce.out"
+    }, "-=0.4")
+  .from(".tomato", {
+    y: -830,
+    x: -35,
+    rotation: -10,
+    opacity: 0,
+    duration: 0.6,
+    ease: "bounce.out"
+  }, "-=0.4")
+  .from(".meat1", {
+      y: -830,
+      x: -35,
+      rotation: -10,
+      opacity: 0,
+      duration: 0.6,
+      ease: "bounce.out"
+    }, "-=0.4")
+    .from(".lettuce1", {
+    y: -850,
+    x: 40,
+    rotation: 15,
+    opacity: 0,
+    duration: 0.65,
+    ease: "bounce.out"
+  }, "-=0.45")
+  .from(".bun-top", {
+    y: -1000,
+    x: 30,
+    rotation: 12,
+    opacity: 0,
+    duration: 0.8,
+    ease: "bounce.out"
+  }, "-=0.1")
+
+  // Finished burger pop
+  .to(".burger", {
+    scale: 1.04,
+    duration: 0.12
+  })
+  .to(".burger", {
+    scale: 1,
+    duration: 0.25,
+    ease: "back.out(3)"
+  });
+
+});
+            return(
         <div className='Landing'>
             <NavBar/>
             <div className="LandingContainer">
             <div className="theLeftSideOfTheBoard">
-                
+                <div className="theLeftSideOfTheBoardContainer">
+                    <h1>your Craving <strong>Just</strong> Found <strong>a</strong>t home</h1>
+                    <p>Life is too short to miss out on double cheese burger.</p>
+                    <button className="orderNowCfa">
+                        <img src={images.mustard} alt="" />
+                        <h5>Order Now!</h5>
+                    </button>
+                    <div className="decoration">
+                        <img src={images.curvedArrow} className='curvedArrow' alt="" />
+                        <img src={images.bigStart} className='bigStart' alt="" />
+                    </div>
+                </div>
             </div>
             <div className="theRightSideOfTheBoard">
-
+                <div className="burger">
+                    <img className="ingredient bun-top" src={images.topBun} />
+                    <img className="ingredient lettuce" src={images.letuce} />
+                    <img className="ingredient lettuce1" src={images.letuce} />
+                    <img className="ingredient cheese" src={images.cheese} />
+                    <img className="ingredient patty" src={images.onions}/>
+                    <img className="ingredient meat" src={images.meat}/>
+                    <img className="ingredient meat1" src={images.meat}/>
+                    <img className="ingredient tomato" src={images.tomato} />
+                    <img className="ingredient bun-bottom" src={images.bottomBun} />
+                </div>
             </div>
             </div>
         </div>

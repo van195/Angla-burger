@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 body{
     margin: 0;
     padding: 0;
@@ -5,7 +6,7 @@ body{
 .Landing{
  position: relative;
  z-index: 1;
- 
+ overflow-x: hidden;
 }
 .LandingContainer{
     position: absolute;
@@ -16,10 +17,178 @@ body{
     .theLeftSideOfTheBoard{
         flex: 3;
         background-color: #FEFFDD;
+        position: relative;
+        .theLeftSideOfTheBoardContainer{
+            position: absolute;
+            top: 200px;
+            bottom: 100px;
+            left: 50px;
+            h1{
+                font-family: "Orbitron", sans-serif;
+                font-weight: 900;
+                font-style: normal;
+                font-size: 50px;
+                text-shadow: 4px 4px 2px #FEE163;
+                color: #404112;
+                strong{
+                    color: #c5af4c;
+                }
+            }
+            p{
+                padding-left:20px;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+                font-weight: 900;
+                font-style: normal;
+                font-size: 20px;
+                color:#404112 ;
+            }
+            .orderNowCfa{
+                margin-top: 20px;
+                width: 200px;
+                height: 70px;
+                background-color: transparent;
+                border: none;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: .4s ease-out;
+                &:hover{
+                    transform: scale(1.03);
+                    rotate: -3deg;
+                }
+                img{
+                  position: absolute;
+                  top: -20px;
+                  left: 30px;
+                  width: 200px;
+                  height: 120px;
+                  transform: rotate(3deg);
+                  filter: drop-shadow(5px 5px 2px #0000002d);
+                }
+                h5{
+                    position: absolute;
+                    top: 0;
+                    left: 80px;
+                    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+                    font-weight: 900;
+                    font-style: normal;
+                    font-size: 18px;
+                    color:#404112 ;
+                }
+            }
+            .decoration{
+                position: relative;
+                .curvedArrow{
+                    position: absolute;
+                    top: -80px;
+                    left: 280px;
+                    transform: rotate(9deg);
+                  filter: drop-shadow(2px 2px 0px #000000cd);
+                }
+                .bigStart{
+                    position: absolute;
+                    width: 120px;
+                    height: 110px;
+                    top: -150px;
+                    left: 520px;
+                  filter: drop-shadow(4px 2px 0px #000000cd);
+                }
+            }
+        }
     }
     .theRightSideOfTheBoard{
         flex: 1.8;
         border: 1px solid #fff;
         background:linear-gradient(180deg,#FEE163,#FEFFDD);
+        .burger{
+            position: relative;
+            width: 420px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ingredient{
+            position: absolute;
+            width:100%;
+            left:0;
+        }
+        
+        .bun-top{
+            position: absolute;
+            width:90%;
+            top: 50px;
+            left:20px;
+            z-index: 8;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+        .lettuce1{
+            position: absolute;
+            width:80%;
+            left:40px;
+            bottom:-50px;
+            z-index: 7;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+        .meat1{
+            position: absolute;
+            width:80%;
+            left:40px;
+            bottom:-50px;
+            z-index: 6;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+        .tomato{
+            position: absolute;
+            width:50%;
+            left:70px;
+            bottom:10px;
+            z-index: 5;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+        .patty{
+            position: absolute;
+            width:50%;
+            left:50px;
+            bottom:10px;
+            z-index: 5;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+        .cheese{
+            position: absolute;
+            width:70%;
+            left:50px;
+            bottom:-30px;
+            z-index: 4;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+        .meat{
+            position: absolute;
+            width:73%;
+            left:50px;
+            bottom:-110px;
+            z-index: 3;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+        .lettuce{
+            position: absolute;
+            width:90%;
+            left:0;
+            bottom:-198px;
+            z-index: 2;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+        .bun-bottom{
+            position: absolute;
+            width:95%;
+            left:0;
+            bottom:-180px;
+            z-index: 1;
+            filter: drop-shadow(5px 5px 10px #00000067);
+        }
+
     }
 }
