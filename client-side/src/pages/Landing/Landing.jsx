@@ -115,6 +115,7 @@ const Landing =()=>{
                     <div className="decoration">
                         <img src={images.curvedArrow} className='curvedArrow' alt="" />
                         <img src={images.bigStart} className='bigStart' alt="" />
+                        <img src={images.singleCircleOnion} className='singleCircleOnion' alt="" />
                     </div>
                 </div>
             </div>
@@ -130,6 +131,12 @@ const Landing =()=>{
                     <img className="ingredient tomato" src={images.tomato} />
                     <img className="ingredient bun-bottom" src={images.bottomBun} />
                 </div>
+                    <div className="decoration2">
+                        <img src={images.timo2} className='timo2' alt="" />
+                        <img src={images.chips_0000_1} className='chips_0000_1' alt="" />
+                        <img src={images.SingleOnion} className='SingleOnion' alt="" />
+                       
+                    </div>
             </div>
             </div>
         </div>

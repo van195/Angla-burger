@@ -15,6 +15,10 @@ import tomato from '../../assets/tomato.png';
 import topBun from '../../assets/top-bun.png';
 import meat from '../../assets/meat.png';
 import mustard from '../../assets/mustard.png'
+import timo1 from '../../assets/timo2.png'
+import timo2 from '../../assets/timo1.png'
+import SingleOnion from '../../assets/SingleOnion.png'
+import singleCircleOnion from '../../assets/singleCircleOnion.png'
 export default {
 bigStart,
 curvedArrow,
@@ -32,5 +36,9 @@ letuce,
 onions,
 tomato,
 topBun,
-meat
+meat,
+timo2,
+timo1,
+SingleOnion,
+singleCircleOnion,
 }
