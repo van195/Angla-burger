@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.Landing{
+ position: relative;
+ z-index: 1;
+ 
+}
+.LandingContainer{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    .theLeftSideOfTheBoard{
+        flex: 3;
+        background-color: #FEFFDD;
+    }
+    .theRightSideOfTheBoard{
+        flex: 1.8;
+        border: 1px solid #fff;
+        background:linear-gradient(180deg,#FEE163,#FEFFDD);
+    }
+}
