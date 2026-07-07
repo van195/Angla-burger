@@ -4,102 +4,102 @@ import images from '../../componets/containers/container'
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 const Landing =()=>{
-   useGSAP(() => {
-  const tl = gsap.timeline({
-    defaults: {
-      ease: "power2.out"
-    }
-  });
+        useGSAP(() => {
+        const tl = gsap.timeline({
+            defaults: {
+            ease: "power2.out"
+            }
+        });
 
-  tl.from(".bun-bottom", {
-    y: -900,
-    x: -50,
-    rotation: -20,
-    opacity: 0,
-    duration: 0.8,
-    ease: "bounce.out"
-  })
+        tl.from(".bun-bottom", {
+            y: -900,
+            x: -50,
+            rotation: -20,
+            opacity: 0,
+            duration: 0.8,
+            ease: "bounce.out"
+        })
 
-  .from(".lettuce", {
-    y: -850,
-    x: 40,
-    rotation: 15,
-    opacity: 0,
-    duration: 0.65,
-    ease: "bounce.out"
-  }, "-=0.45")
+        .from(".lettuce", {
+            y: -850,
+            x: 40,
+            rotation: 15,
+            opacity: 0,
+            duration: 0.65,
+            ease: "bounce.out"
+        }, "-=0.45")
 
-  
-  .from(".meat", {
-      y: -830,
-      x: -35,
-      rotation: -10,
-      opacity: 0,
-      duration: 0.6,
-      ease: "bounce.out"
-    }, "-=0.4")
-    .from(".cheese", {
-      y: -820,
-      x: -30,
-      rotation: -15,
-      opacity: 0,
-      duration: 0.65,
-      ease: "bounce.out"
-    }, "-=0.42")
-  
-    .from(".patty", {
-      y: -950,
-      x: 20,
-      rotation: 8,
-      opacity: 0,
-      duration: 0.75,
-      ease: "bounce.out"
-    }, "-=0.4")
-  .from(".tomato", {
-    y: -830,
-    x: -35,
-    rotation: -10,
-    opacity: 0,
-    duration: 0.6,
-    ease: "bounce.out"
-  }, "-=0.4")
-  .from(".meat1", {
-      y: -830,
-      x: -35,
-      rotation: -10,
-      opacity: 0,
-      duration: 0.6,
-      ease: "bounce.out"
-    }, "-=0.4")
-    .from(".lettuce1", {
-    y: -850,
-    x: 40,
-    rotation: 15,
-    opacity: 0,
-    duration: 0.65,
-    ease: "bounce.out"
-  }, "-=0.45")
-  .from(".bun-top", {
-    y: -1000,
-    x: 30,
-    rotation: 12,
-    opacity: 0,
-    duration: 0.8,
-    ease: "bounce.out"
-  }, "-=0.1")
+        
+        .from(".meat", {
+            y: -830,
+            x: -35,
+            rotation: -10,
+            opacity: 0,
+            duration: 0.6,
+            ease: "bounce.out"
+            }, "-=0.4")
+            .from(".cheese", {
+            y: -820,
+            x: -30,
+            rotation: -15,
+            opacity: 0,
+            duration: 0.65,
+            ease: "bounce.out"
+            }, "-=0.42")
+        
+            .from(".patty", {
+            y: -950,
+            x: 20,
+            rotation: 8,
+            opacity: 0,
+            duration: 0.75,
+            ease: "bounce.out"
+            }, "-=0.4")
+        .from(".tomato", {
+            y: -830,
+            x: -35,
+            rotation: -10,
+            opacity: 0,
+            duration: 0.6,
+            ease: "bounce.out"
+        }, "-=0.4")
+        .from(".meat1", {
+            y: -830,
+            x: -35,
+            rotation: -10,
+            opacity: 0,
+            duration: 0.6,
+            ease: "bounce.out"
+            }, "-=0.4")
+            .from(".lettuce1", {
+            y: -850,
+            x: 40,
+            rotation: 15,
+            opacity: 0,
+            duration: 0.65,
+            ease: "bounce.out"
+        }, "-=0.45")
+        .from(".bun-top", {
+            y: -1000,
+            x: 30,
+            rotation: 12,
+            opacity: 0,
+            duration: 0.8,
+            ease: "bounce.out"
+        }, "-=0.1")
 
-  // Finished burger pop
-  .to(".burger", {
-    scale: 1.04,
-    duration: 0.12
-  })
-  .to(".burger", {
-    scale: 1,
-    duration: 0.25,
-    ease: "back.out(3)"
-  });
+        // Finished burger pop
+        .to(".burger", {
+            scale: 1.04,
+            duration: 0.12
+        })
+        .to(".burger", {
+            scale: 1,
+            duration: 0.25,
+            ease: "back.out(3)"
+        });
 
-});
+        });
             return(
         <div className='Landing'>
             <NavBar/>

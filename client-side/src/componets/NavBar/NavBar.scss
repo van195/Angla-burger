@@ -6,6 +6,12 @@
     align-items: center;
     justify-content: center;
     z-index: 2;
+    .NavBarContainerResponsive{
+        display: none;
+    }
+    .dispalyingIcon{
+        display: none;
+    }
     .NavBarContainer{
         margin-top: 40px;
         padding: 0px 5px;
@@ -76,4 +82,125 @@
         }
     }
 
+}
+
+@media (max-width:500px) {
+    .NavBar{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+        height: 50vh;
+        z-index: 10;
+        .NavBarContainer{
+           display: none;
+        }
+        .dispalyingIcon{
+            width: 100%;
+            display: block;
+            position: relative;
+            background-color: transparent;
+            border: none;
+            .listTheMenuIcon{
+                position: absolute;
+                right: 20px;
+                top: -200px;
+                font-size: 35px;
+                color: #404112;
+            }
+
+        }
+        .NavBarContainerResponsive{
+            margin-top: 40px;
+            padding: 0px 5px;
+            border: 1px solid #dfdddd;
+            border-radius: 20px;
+            background-color: #404112;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 5px 5px 3px #4041123f;
+            .cancelButton{
+                width: 100%;
+                position: relative;
+                .cancel{
+                    position: absolute;
+                    right: 0;
+                    padding: 5px;
+                    box-shadow: 5px 5px 10px #dfdddd3a;
+                    background-color: transparent;
+                    color: #FEFFDD;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+            .NavigationSection{
+                flex: 3 ;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            ul{ 
+                padding-top: 40px;
+                width: 100%;
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 50px;
+                li{
+                    width: 80%;
+                    height: 40px;
+                    border:1px solid  #FEFFDD;
+                    border-radius: 20px;
+                    text-align: center;
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    font-size: 25px;
+                    font-weight: 800;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: .3s ease;
+                    &:hover{
+                    color: #404112;
+                      background-color: #FEFFDD;
+                    }
+                }
+            }
+        }
+        .callOfActionSection{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .cia{
+                width: 150px;
+                height: 40px;
+                border-radius: 20px;
+                border: none;
+                background-color: #F9CC0B;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                position: relative;
+                box-shadow: 3px 3px 0px #FEFFDD;
+                .theArrow{
+                    position: absolute;
+                    right: 2px;
+                    padding: 6px 7px;
+                    background-color: #FEFFDD;
+                    border-radius: 50%;
+                }
+                h1{
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    font-size: 17px;
+                    color: #404112;
+                }
+            }
+        }
+    
+        }
+    }
 }
