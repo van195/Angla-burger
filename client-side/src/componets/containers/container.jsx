@@ -17,8 +17,14 @@ import meat from '../../assets/meat.png';
 import mustard from '../../assets/mustard.png'
 import timo2 from '../../assets/timo1.png'
 import SingleOnion from '../../assets/SingleOnion.png'
+import theBurger from '../../assets/theBurger.png'
+import shawarma from '../../assets/shawarma.png'
+import chicken from '../../assets/chicken.png'
 import singleCircleOnion from '../../assets/singleCircleOnion.png'
 export default {
+    theBurger,
+    shawarma,
+    chicken,
 bigStart,
 curvedArrow,
 mustard,

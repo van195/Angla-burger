@@ -1,6 +1,7 @@
 import './Landing.scss';
 import NavBar from '../../componets/NavBar/NavBar';
-import images from '../../componets/containers/container'
+import images from '../../componets/containers/container';
+import SideRotateMenu from '../../componets/sideRotateMenu/sideRotateMenu.jsx'
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 const Landing =()=>{
@@ -104,41 +105,44 @@ const Landing =()=>{
         <div className='Landing'>
             <NavBar/>
             <div className="LandingContainer">
-            <div className="theLeftSideOfTheBoard">
-                <div className="theLeftSideOfTheBoardContainer">
-                    <h1>your Craving <strong>Just</strong> Found <strong>a</strong>t home</h1>
-                    <p>Life is too short to miss out on double cheese burger.</p>
-                    <button className="orderNowCfa">
-                        <img src={images.mustard} alt="" />
-                        <h5>Order Now!</h5>
-                    </button>
-                    <div className="decoration">
-                        <img src={images.curvedArrow} className='curvedArrow' alt="" />
-                        <img src={images.bigStart} className='bigStart' alt="" />
-                        <img src={images.singleCircleOnion} className='singleCircleOnion' alt="" />
+                <div className="theLeftSideOfTheBoard">
+                    <div className="theLeftSideOfTheBoardContainer">
+                        <h1>your Craving <strong>Just</strong> Found <strong>a</strong>t home</h1>
+                        <p>Life is too short to miss out on double cheese burger.</p>
+                        <button className="orderNowCfa">
+                            <img src={images.mustard} alt="" />
+                            <h5>Order Now!</h5>
+                        </button>
+                        <div className="decoration">
+                            <img src={images.curvedArrow} className='curvedArrow' alt="" />
+                            <img src={images.bigStart} className='bigStart' alt="" />
+                            <img src={images.singleCircleOnion} className='singleCircleOnion' alt="" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="theRightSideOfTheBoard">
-                <div className="burger">
-                    <img className="ingredient bun-top" src={images.topBun} />
-                    <img className="ingredient lettuce" src={images.letuce} />
-                    <img className="ingredient lettuce1" src={images.letuce} />
-                    <img className="ingredient cheese" src={images.cheese} />
-                    <img className="ingredient patty" src={images.onions}/>
-                    <img className="ingredient meat" src={images.meat}/>
-                    <img className="ingredient meat1" src={images.meat}/>
-                    <img className="ingredient tomato" src={images.tomato} />
-                    <img className="ingredient bun-bottom" src={images.bottomBun} />
-                </div>
-                    <div className="decoration2">
-                        <img src={images.timo2} className='timo2' alt="" />
-                        <img src={images.chips_0000_1} className='chips_0000_1' alt="" />
-                        <img src={images.SingleOnion} className='SingleOnion' alt="" />
-                       
+                
+                <div className="theRightSideOfTheBoard">
+                    <div className="burger">
+                        <img className="ingredient bun-top" src={images.topBun} />
+                        <img className="ingredient lettuce" src={images.letuce} />
+                        <img className="ingredient lettuce1" src={images.letuce} />
+                        <img className="ingredient cheese" src={images.cheese} />
+                        <img className="ingredient patty" src={images.onions}/>
+                        <img className="ingredient meat" src={images.meat}/>
+                        <img className="ingredient meat1" src={images.meat}/>
+                        <img className="ingredient tomato" src={images.tomato} />
+                        <img className="ingredient bun-bottom" src={images.bottomBun} />
                     </div>
+                        <div className="decoration2">
+                            <img src={images.timo2} className='timo2' alt="" />
+                            <img src={images.chips_0000_1} className='chips_0000_1' alt="" />
+                            <img src={images.SingleOnion} className='SingleOnion' alt="" />
+                        
+                        </div>
+                </div>
+
             </div>
-            </div>
+            <SideRotateMenu/>
         </div>
     )
 }

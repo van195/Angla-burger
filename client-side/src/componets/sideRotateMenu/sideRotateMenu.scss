@@ -1,0 +1,46 @@
+.sideRotateMenu{
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    .sideRotateMenuContainer{
+        width: 100%;
+        height: 100%;
+        display: flex;
+      
+        .left{
+            flex: 3;
+            background-color: #FEFFDD;
+        }
+        .right{
+            position: relative;
+            flex: 1.9;
+            display: flex;
+            background-color:#FEFFDD;
+            color: #0f172a;
+            overflow: hidden;
+            ::-webkit-scrollbar{
+                display: none;
+            }
+            .carouselContainer{
+                position: absolute;
+                top: 30px;
+                right: -250px;
+                width: 100%;
+                height: 100%;
+                .carousel{
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                        img{
+                            position: absolute;
+                            width: 320px;
+                            filter: drop-shadow(5px 5px 1px #0000001e);
+                        }
+                }
+            }
+        }
+    }
+}
