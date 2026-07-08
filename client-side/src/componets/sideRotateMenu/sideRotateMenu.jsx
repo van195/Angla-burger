@@ -74,7 +74,19 @@ const SideRotateMenu = () => {
         <InfiniteSideScroll/>
         <div className="sideRotateMenuContainer">
           <div className="left">
-
+            <div className="leftContainer">
+              <h1>Find your next craving</h1>
+                <p>
+                    Explore handcrafted burgers, wraps, fried chicken, and more 
+                    every spin reveals another irresistible favorite.
+                    Every meal is thoughtfully crafted using fresh ingredients, 
+                    premium cuts, and bold seasonings to deliver unforgettable
+                    flavor in every bite. Explore our signature burgers, crispy chicken,
+                    and handcrafted wraps each made fresh, served hot, and designed 
+                    to satisfy every craving from the very first taste.
+               </p>
+               <button className="Explore">Explore</button>
+            </div>
           </div>
           <div className="right">
              <div className="carouselContainer">

@@ -4,6 +4,7 @@ import images from '../../componets/containers/container';
 import SideRotateMenu from '../../componets/sideRotateMenu/sideRotateMenu.jsx'
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import OurStory from '../../componets/ourStory/ourStory.jsx';
 const Landing =()=>{
         useGSAP(() => {
         const tl = gsap.timeline({
@@ -143,6 +144,7 @@ const Landing =()=>{
 
             </div>
             <SideRotateMenu/>
+            <OurStory/>
         </div>
     )
 }
