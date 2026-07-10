@@ -21,6 +21,10 @@ import theBurger from '../../assets/theBurger.png'
 import shawarma from '../../assets/shawarma.png'
 import chicken from '../../assets/chicken.png'
 import singleCircleOnion from '../../assets/singleCircleOnion.png'
+import TheBestBurgerOnlyForYou from '../../assets/The-best-burger-only-for-you.jpg'
+import ClassicCheeseburgerChasety from '../../assets/Classic-Cheeseburger-Chasety.jpg'
+import Fotografia from '../../assets/Fotografia de Comida.webp'
+import FastFood from '../../assets/FastFood.jpg';
 export default {
     theBurger,
     shawarma,
@@ -45,4 +49,8 @@ meat,
 timo2,
 SingleOnion,
 singleCircleOnion,
+TheBestBurgerOnlyForYou,
+ClassicCheeseburgerChasety,
+Fotografia,
+FastFood,
 }

@@ -8,7 +8,7 @@ import { MotionPathPlugin, ScrollTrigger } from 'gsap/all';
 import { getClosestImage } from '../containers/functionContainer';
 gsap.registerPlugin(ScrollTrigger , MotionPathPlugin) ;
 const SideRotateMenu = () => {
-    const container = useRef(null);
+        const carousel= document.querySelector(".carousel");
     const heroPoint = {
           x: window.innerWidth * 0.82,
           y: 170
@@ -68,7 +68,9 @@ const SideRotateMenu = () => {
             }
         )
 
-    },[])
+    }, {
+   scope: carousel
+})
   return (
     <div className='sideRotateMenu'>
         <InfiniteSideScroll/>
