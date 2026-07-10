@@ -7,6 +7,8 @@ import gsap from "gsap";
 import OurStory from '../../componets/ourStory/ourStory.jsx';
 import Lenis from 'lenis';
 import { ScrollTrigger } from 'gsap/all';
+import WhyWeGetChosen from '../../componets/WhyWeGetChosed/WhyWeGetChosen.jsx';
+import Footer from '../../componets/footer/footer.jsx';
 const Landing =()=>{
         useGSAP(() => {
              const lenis = new Lenis();
@@ -159,6 +161,8 @@ const Landing =()=>{
             </div>
             <SideRotateMenu/>
             <OurStory/>
+            <WhyWeGetChosen/>
+            <Footer/>
         </div>
     )
 }

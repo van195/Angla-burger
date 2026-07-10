@@ -25,10 +25,14 @@ import TheBestBurgerOnlyForYou from '../../assets/The-best-burger-only-for-you.j
 import ClassicCheeseburgerChasety from '../../assets/Classic-Cheeseburger-Chasety.jpg'
 import Fotografia from '../../assets/Fotografia de Comida.webp'
 import FastFood from '../../assets/FastFood.jpg';
+import TheBestHamburgerRecipe from '../../assets/TheBestHamburgerRecipe.jpg';
+import fresh from '../../assets/fresh.jpg';
+import Fastdelivery from '../../assets/Fast-delivery.jpg';
+import Thebestburgeronlyforyou from '../../assets/Thebestburgeronlyfor-you.jpg';
 export default {
-    theBurger,
-    shawarma,
-    chicken,
+theBurger,
+shawarma,
+chicken,
 bigStart,
 curvedArrow,
 mustard,
@@ -53,4 +57,8 @@ TheBestBurgerOnlyForYou,
 ClassicCheeseburgerChasety,
 Fotografia,
 FastFood,
+TheBestHamburgerRecipe,
+fresh,
+Fastdelivery,
+Thebestburgeronlyforyou
 }
