@@ -29,6 +29,7 @@ import TheBestHamburgerRecipe from '../../assets/TheBestHamburgerRecipe.jpg';
 import fresh from '../../assets/fresh.jpg';
 import Fastdelivery from '../../assets/Fast-delivery.jpg';
 import Thebestburgeronlyforyou from '../../assets/Thebestburgeronlyfor-you.jpg';
+import logo from '../../assets/images-removebg-preview.png';
 export default {
 theBurger,
 shawarma,
@@ -60,5 +61,6 @@ FastFood,
 TheBestHamburgerRecipe,
 fresh,
 Fastdelivery,
-Thebestburgeronlyforyou
+Thebestburgeronlyforyou,
+logo
 }
