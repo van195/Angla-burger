@@ -1,0 +1,25 @@
+.home{
+    width: 100vw;
+    height: 100vh;
+    background-color: #FEFFDD ;
+    display: flex;
+    overflow-x:hidden ;
+    
+    .theMenu{
+        flex: 3;
+    }
+   
+    .theCart{
+        flex: 1.5;
+    }
+}
+.home::-webkit-scrollbar {
+     width: 5px;
+    }
+.home::-webkit-scrollbar-track {
+      background: #ffffff;
+    }
+.home::-webkit-scrollbar-thumb {
+  background: #404112;
+  border-radius: 10px;
+}

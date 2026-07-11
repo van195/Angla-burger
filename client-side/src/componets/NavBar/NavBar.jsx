@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
-const NavBar =()=>{
+const NavBar =({buttonType})=>{
    const [dropDown ,setDropDown] = useState(false);
     return(
         <div className="NavBar">
@@ -20,7 +20,7 @@ const NavBar =()=>{
               </div>
               <div className="callOfActionSection">
                  <button className="cia">
-                    <h1>Order Now</h1>
+                    <h1>{buttonType}</h1>
                     <span className="theArrow"><ArrowForwardOutlinedIcon/></span>
                  </button>
               </div>

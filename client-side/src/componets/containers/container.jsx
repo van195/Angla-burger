@@ -30,6 +30,9 @@ import fresh from '../../assets/fresh.jpg';
 import Fastdelivery from '../../assets/Fast-delivery.jpg';
 import Thebestburgeronlyforyou from '../../assets/Thebestburgeronlyfor-you.jpg';
 import logo from '../../assets/images-removebg-preview.png';
+import Frame from '../../assets/Frame.png';
+import burgerWithWomenBlackAndWhite from '../../assets/burgerWithWomenBlackAndWhite.webp';
+import hamburger from '../../assets/hamburger.webp';
 export default {
 theBurger,
 shawarma,
@@ -62,5 +65,8 @@ TheBestHamburgerRecipe,
 fresh,
 Fastdelivery,
 Thebestburgeronlyforyou,
-logo
+burgerWithWomenBlackAndWhite,
+logo,
+Frame,
+hamburger
 }

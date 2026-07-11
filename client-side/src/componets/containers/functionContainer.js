@@ -1,4 +1,5 @@
 import images from '../containers/container'
+
 export function getClosestImage(images, heroPoint) {
     let closest = null;
     let minDistance = Infinity;

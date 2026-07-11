@@ -1,0 +1,69 @@
+.DisplayMenu{
+    width: 100%;
+    height: 100%;
+    margin-top: -230px;
+    .DisplayMenuContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .searchContainer{
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h1{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 20px;
+            }
+            .searchIdentifire{
+              width: 150px;
+              height: 35px;
+              border-radius: 20px;
+              border: 1px solid #32323275;
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              z-index: 4;
+              p{
+                padding-left: 10px;
+                color: #868585ce;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              }
+            }
+        }
+        .menuContainer{
+            width: 90%;
+            display: flex;
+            border-top: 1px solid #00000045;
+            .menuOption{
+                margin-top: 10px;
+                flex: 1;
+                border-right: 3px solid #0000002f;
+                
+                ul{ 
+                    padding: 10px;
+                    list-style: none;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 40px;
+                    li{
+                        border-radius: 20px;
+                        padding: 8px 40px;
+                        text-align: center;
+                        background-color: #40411232;
+                        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                        font-weight: 700;
+                        color: #404112;
+                    }
+                }
+            }
+            .menuDisplayed{
+                flex: 3;
+
+            }
+        }
+    }
+}

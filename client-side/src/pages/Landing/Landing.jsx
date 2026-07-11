@@ -120,7 +120,9 @@ const Landing =()=>{
         });
             return(
         <div className='Landing'>
-            <NavBar/>
+            <NavBar
+             buttonType='Order Now'
+            />
             <div className="LandingContainer">
                 <div className="theLeftSideOfTheBoard">
                     <div className="theLeftSideOfTheBoardContainer">

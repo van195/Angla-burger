@@ -1,5 +1,6 @@
 import './WhyWeGetChosen.scss';
 import { cardsContent } from '../containers/functionContainer';
+
 const WhyWeGetChosen =()=>{
     return(
         <div className="WhyWeGetChosen">
