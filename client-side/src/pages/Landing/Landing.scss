@@ -8,6 +8,16 @@ body{
  z-index: 1;
  overflow-x: hidden;
 }
+.Landing::-webkit-scrollbar {
+     width: 5px;
+    }
+.Landing::-webkit-scrollbar-track {
+      background: #ffffff;
+    }
+.Landing::-webkit-scrollbar-thumb {
+  background: #404112;
+  border-radius: 10px;
+}
 .LandingContainer{
     position: absolute;
     width: 100vw;

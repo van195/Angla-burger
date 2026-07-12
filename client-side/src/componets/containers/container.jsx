@@ -25,6 +25,7 @@ import TheBestBurgerOnlyForYou from '../../assets/The-best-burger-only-for-you.j
 import ClassicCheeseburgerChasety from '../../assets/Classic-Cheeseburger-Chasety.jpg'
 import Fotografia from '../../assets/Fotografia de Comida.webp'
 import FastFood from '../../assets/FastFood.jpg';
+import coffee from '../../assets/coffee.jpg';
 import TheBestHamburgerRecipe from '../../assets/TheBestHamburgerRecipe.jpg';
 import fresh from '../../assets/fresh.jpg';
 import Fastdelivery from '../../assets/Fast-delivery.jpg';
@@ -68,5 +69,6 @@ Thebestburgeronlyforyou,
 burgerWithWomenBlackAndWhite,
 logo,
 Frame,
-hamburger
+hamburger,
+coffee
 }
