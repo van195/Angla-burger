@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Landing from "./pages/Landing/Landing"
 import Home from "./pages/Home/home"
+import CheckOutPage from "./pages/CheckOutPage/CheckOutPage"
 
 const App = () => {
   return (
@@ -14,8 +15,8 @@ const App = () => {
        element={<Home/>}
       />
       <Route
-       path='/'
-       element={<Landing/>}
+       path='/checkout'
+       element={<CheckOutPage/>}
       />
     </Routes>
   )

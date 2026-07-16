@@ -2,12 +2,14 @@
     width: 100%;
     height: 100%;
     margin-top: -230px;
+    
     .DisplayMenuContainer{
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+      
         .searchContainer{
             width: 90%;
             display: flex;
@@ -24,6 +26,7 @@
               border: 1px solid #32323275;
               display: flex;
               align-items: center;
+              background-color: transparent;
               cursor: pointer;
               z-index: 4;
               p{

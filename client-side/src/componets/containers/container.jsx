@@ -31,11 +31,22 @@ import fresh from '../../assets/fresh.jpg';
 import Fastdelivery from '../../assets/Fast-delivery.jpg';
 import Thebestburgeronlyforyou from '../../assets/Thebestburgeronlyfor-you.jpg';
 import logo from '../../assets/images-removebg-preview.png';
+import Spiral from '../../assets/Spiral 3.png';
 import Frame from '../../assets/Frame.png';
+import group from '../../assets/group.png';
+import bag from '../../assets/bag.png';
+import cards from '../../assets/cards.png';
+import Line1 from '../../assets/Line1.png';
+import rawTellBirrLogo from '../../assets/rawTellBirrLogo-removebg-preview.png';
 import burgerWithWomenBlackAndWhite from '../../assets/burgerWithWomenBlackAndWhite.webp';
 import hamburger from '../../assets/hamburger.webp';
 export default {
 theBurger,
+group,
+bag,
+cards,
+rawTellBirrLogo,
+Line1,
 shawarma,
 chicken,
 bigStart,
@@ -70,5 +81,7 @@ burgerWithWomenBlackAndWhite,
 logo,
 Frame,
 hamburger,
-coffee
+coffee,
+Spiral,
+
 }

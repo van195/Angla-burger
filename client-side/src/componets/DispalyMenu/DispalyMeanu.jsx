@@ -1,17 +1,22 @@
 import './DisplayMenu.scss';
 import images from '../containers/container'
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import { useState } from 'react';
 const DisplayMenu = ()=>{
-
+      const [pop , setPop ] = useState(false)
+      console.log(pop);
+      
     return(
         <div className="DisplayMenu">
+            
             <div className="DisplayMenuContainer">
                 <div className="searchContainer">
                  <h1>All offer from angla, addis abeba </h1>
-                  <div className="searchIdentifire">
+                  <button onClick={()=>setPop(true)} className="searchIdentifire">
                     <p>search...</p>
-                  </div>
+                  </button>
                 </div>
+               
                 <div className="menuContainer">
                     <div className="menuOption">
                         <ul className='foodMenu'>
