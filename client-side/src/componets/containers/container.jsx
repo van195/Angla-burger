@@ -40,8 +40,10 @@ import Line1 from '../../assets/Line1.png';
 import rawTellBirrLogo from '../../assets/rawTellBirrLogo-removebg-preview.png';
 import burgerWithWomenBlackAndWhite from '../../assets/burgerWithWomenBlackAndWhite.webp';
 import hamburger from '../../assets/hamburger.webp';
+import ThinkingFace from '../../assets/ThinkingFace.mp4';
 export default {
 theBurger,
+ThinkingFace,
 group,
 bag,
 cards,

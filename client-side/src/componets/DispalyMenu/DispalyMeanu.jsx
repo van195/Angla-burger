@@ -1,10 +1,28 @@
 import './DisplayMenu.scss';
 import images from '../containers/container'
+import {foodList} from '../containers/functionContainer'
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useFoodContext } from '../../context/foodContext';
 const DisplayMenu = ()=>{
-      const [pop , setPop ] = useState(false)
-      console.log(pop);
+      const [pop , setPop ] = useState(null);
+      const {FoodLists,setFoodList} = useFoodContext()
+      const addToCart = (item)=>{
+        if(!item) return;
+        setFoodList(prev => [...prev,
+            {
+                id:item.id,
+                title:item.title,
+                image:item.images,
+                quantity:1,
+                price:item.paragraph,
+            }
+        ]); 
+               
+      }
+      useEffect(()=>{
+        console.log(FoodLists);
+      },[FoodLists])
       
     return(
         <div className="DisplayMenu">
@@ -33,32 +51,19 @@ const DisplayMenu = ()=>{
                     <div className="menuDisplayed">
                        <div className="menuDisplayedContainer">
                             <div className="DisplayingFood">
-                                <div className="DisplayingFoodContainer">
-                                    <img src={images.hamburger} alt="" />
+                               {
+                                foodList && foodList.map((item , i)=>(
+                                <div className="DisplayingFoodContainer" key={item.id}>
+                                    <img src={item.images} alt="" />
                                     <div className="theText">
-                                        <h1>hamburger</h1>
-                                        <p>670 birr</p>
-                                        <button className='addToCart'>Order Now <ArrowForwardIosOutlinedIcon style={{fontSize:'16px',fontWeight:300}}/></button>
+                                        <h1>{item.title}</h1>
+                                        <p>{item.paragraph} birr</p>
+                                        <button className='addToCart' onClick={()=>addToCart(item)}>Order Now <ArrowForwardIosOutlinedIcon style={{fontSize:'16px',fontWeight:300}}/></button>
                                     </div>
                                     <div className="blackShadow"></div>
                                 </div>
-                                <div className="DisplayingFoodContainer">
-                                    <img src={images.hamburger} alt="" />
-                                    <div className="theText">
-                                        <h1>hamburger</h1>
-                                        <p>670 birr</p>
-                                        <button className='addToCart'>Order Now <ArrowForwardIosOutlinedIcon style={{fontSize:'16px',fontWeight:300}}/></button>          
-                                    </div>
-                                    <div className="blackShadow"></div>
-                                </div>
-                                <div className="DisplayingFoodContainer">
-                                    <img src={images.hamburger} alt="" />
-                                    <div className="theText">
-                                        <h1>hamburger</h1>
-                                        <p>670 birr</p>
-                                        <button className='addToCart'>Order Now <ArrowForwardIosOutlinedIcon style={{fontSize:'16px',fontWeight:300}}/></button>
-                                    </div>
-                                </div>
+                                ))
+                              }
                             </div>
                             <div className="DisplayingDrinks">
                                 <div className="DisplayingFoodContainer">

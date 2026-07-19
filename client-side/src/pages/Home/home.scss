@@ -3,12 +3,11 @@
     height: 100vh;
     background-color: #FEFFDD ;
     display: flex;
-    overflow-x:hidden ;
-    
+    overflow-x:hidden;
     .theMenu{
         flex: 3;
+        max-height: 100vh;
     }
-   
     .theCart{
         flex: 1.5;
     }

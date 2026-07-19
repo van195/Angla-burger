@@ -2,7 +2,11 @@ import './CheckOutPage.scss';
 import images from '../../componets/containers/container'
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import { Link } from 'react-router-dom';
+import { useFoodContext } from '../../context/foodContext';
+import { getTotalBill } from '../../componets/containers/functionContainer';
 const CheckOutPage = ()=>{
+        const {FoodLists,setFoodList } = useFoodContext();
+        const total = getTotalBill(FoodLists)
     return(
       <div className="checkOutPage">
         <div className="theHeader">
@@ -51,31 +55,34 @@ const CheckOutPage = ()=>{
             <div className="recheckTheOrder">
                 <div className="recheckTheOrderContainer">
                   <div className="showTheMenu">
-                     <div className="orders">
-                        <img src={images.hamburger} alt="" />
-                         <h4>hamburger</h4>
+                     { FoodLists.map((item)=>(
+                      <div className="orders" key={item.id}>
+                        <img src={item.image} alt="" />
+                         <h4>{item.title}</h4>
                      </div>
-                     <div className="orders">
+                     ))
+                     }
+                     {/*<div className="orders">
                         <img src={images.chicken} alt="" />
                          <h4>shawarma</h4>
-                     </div>
+                     </div>*/}
                   </div>
                   <div className="showTheBill">
                       <div className="listOfPrice">
                         <h1>Product : </h1>
-                        <h1> 670 birr </h1>
+                        <h1> {total} birr </h1>
                       </div>
                       <div className="listOfPrice">
                         <h1>Discount : </h1>
-                        <h1> 670 birr </h1>
+                        <h1> 0 birr </h1>
                       </div>
                       <div className="listOfPrice">
                         <h1>Delivery : </h1>
-                        <h1> 670 birr </h1>
+                        <h1> free </h1>
                       </div>
                       <div className="listOfPrice">
                         <h1 className='totalPrice'>total : </h1>
-                        <h1 className='totalPrice'> 670 birr </h1>
+                        <h1 className='totalPrice'> {total} birr </h1>
                       </div>
                   </div>
                 </div>
