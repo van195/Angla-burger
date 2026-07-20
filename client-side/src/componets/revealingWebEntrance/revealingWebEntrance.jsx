@@ -43,6 +43,22 @@ const RevealingWebEntrance = ()=>{
                delay:7,
             }
         );
+         gsap.fromTo(".theLogoReveal h6",
+            {
+               y:-100,
+               opacity:0,
+               ease:"power3.inOut",
+               scale:0.95
+            },
+            {
+                y:0,
+                duration:2,
+               opacity:1,
+               stagger: 0.1,
+               ease:"power3.inOut",
+               scale:1
+            }
+        );
         gsap.to(".progress-bar",
             {
                width:"100%",
@@ -57,29 +73,38 @@ const RevealingWebEntrance = ()=>{
                }
             }
         );
+        gsap.to(".theLogoReveal",
+            {
+               width:"100%",
+               opacity:0,
+               duration:2,
+               delay:4.5,
+               ease:"power3.inOut",
+            }
+        );
 
         const tl = gsap.timeline({ delay: 5.1 });
 
-tl.to(".hero-imgs > img", {
-    clipPath: "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)",
-    scale: 1.2,
-    duration: 0.5,
-    ease: "power4.inOut",
-    stagger: 0.1,
-})
+            tl.to(".hero-imgs > img", {
+                clipPath: "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)",
+                scale: 1.2,
+                duration: 0.5,
+                ease: "power4.inOut",
+                stagger: 0.1,
+            })
 
-.to(".hero-imgs", {
-    scale: 1.2,
-    duration: 1.5,
-    ease: "power4.inOut",
-}, "<") // starts at the same time
+            .to(".hero-imgs", {
+                scale: 1.2,
+                duration: 1.5,
+                ease: "power4.inOut",
+            }, "<")
 
-.to(".hero", {
-    x: -1500,
-    opacity: 0,
-    duration: 0.5,
-    ease: "power4.inOut",
-});
+            .to(".hero", {
+                x: -1500,
+                opacity: 0,
+                duration: 0.5,
+                ease: "power4.inOut",
+            });
         
 
    },[])
@@ -88,6 +113,13 @@ tl.to(".hero-imgs > img", {
         <section className="hero">
                     <div className="pre-loader">
                         <p>loading</p>
+                        <div className="theLogoReveal">
+                            <h6>A</h6>
+                            <h6>N</h6>
+                            <h6>G</h6>
+                            <h6>L</h6>
+                            <h6>A</h6>
+                        </div>
                         <div className="counter">
                             <div className="digit-1">
                                 <div className="num">0</div>
