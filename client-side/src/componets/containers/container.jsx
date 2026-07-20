@@ -36,6 +36,8 @@ import Frame from '../../assets/Frame.png';
 import group from '../../assets/group.png';
 import bag from '../../assets/bag.png';
 import cards from '../../assets/cards.png';
+import teenagers from '../../assets/teenagers.jpg';
+import teenagers1 from '../../assets/teenagers1.jpg';
 import Line1 from '../../assets/Line1.png';
 import rawTellBirrLogo from '../../assets/rawTellBirrLogo-removebg-preview.png';
 import burgerWithWomenBlackAndWhite from '../../assets/burgerWithWomenBlackAndWhite.webp';
@@ -44,6 +46,8 @@ import ThinkingFace from '../../assets/ThinkingFace.mp4';
 export default {
 theBurger,
 ThinkingFace,
+teenagers,
+teenagers1,
 group,
 bag,
 cards,

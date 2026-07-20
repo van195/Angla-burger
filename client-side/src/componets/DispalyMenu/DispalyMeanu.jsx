@@ -1,12 +1,13 @@
 import './DisplayMenu.scss';
 import images from '../containers/container'
-import {foodList} from '../containers/functionContainer'
+import {foodCategory, foodList} from '../containers/functionContainer'
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import { useEffect, useState } from 'react';
 import { useFoodContext } from '../../context/foodContext';
 const DisplayMenu = ()=>{
       const [pop , setPop ] = useState(null);
       const {FoodLists,setFoodList} = useFoodContext()
+      const [activated , setActivated] = useState('Burger')
       const addToCart = (item)=>{
         if(!item) return;
         setFoodList(prev => [...prev,
@@ -38,10 +39,14 @@ const DisplayMenu = ()=>{
                 <div className="menuContainer">
                     <div className="menuOption">
                         <ul className='foodMenu'>
-                            <li>Burger</li>
-                            <li>Shawarma</li>
-                            <li>Pizza</li>
-                            <li>fries</li>
+                            { foodCategory.map((item)=>(
+                                <li 
+                                className={ activated === item ? 'activated' :''}
+                                onClick={()=>{setActivated(item)}}>
+                                    {item}
+                                </li>
+                            ))
+                            }
                         </ul>
                         <ul className='drinkMenu'>
                             <li>Ice Cream</li>

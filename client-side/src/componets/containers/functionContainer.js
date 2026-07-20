@@ -118,6 +118,13 @@ export const foodList = [
         },
         
     ]
+    export const foodCategory=[
+        'Burger',
+        'Shawarma',
+        'Pizza',
+        'Chicken',
+        'Fries',
+    ]
 
     export function getTotalBill (foodList){
         let total = 0;
@@ -126,4 +133,14 @@ export const foodList = [
           total += item.price * item.quantity
       }) ;
       return total;
+    }
+    export function splitTextIntoSpan (selector){
+       let element = document.querySelector(selector);
+       if(element){
+        let text = element.innerText;
+        let splitText = text.split("")
+                             .map((char)=> `<span> ${char}</span>`)
+                             .join('');
+                            element.innerHTML = splitText;
+       } 
     }

@@ -40,6 +40,8 @@ body{
                 font-size: 50px;
                 text-shadow: 4px 4px 2px #FEE163;
                 color: #404112;
+                clip-path: polygon(0 0 , 100% 0, 100% 100% , 0 100%);
+
                 strong{
                     color: #c5af4c;
                 }

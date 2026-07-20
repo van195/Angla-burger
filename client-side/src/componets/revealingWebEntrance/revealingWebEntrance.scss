@@ -1,0 +1,77 @@
+
+.hero{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    padding: 3em;
+    background-color: #faf0ca;
+    z-index: 11;
+    overflow:  hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .pre-loader{
+        width: 200%;
+        height: 100%;
+        padding: 2em;
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 0.5em;
+        overflow: hidden;
+        z-index: 10;
+        p{
+            width: max-content;
+            text-transform:uppercase ;
+            font-family:'Orbitron';
+            font-size: 60px;
+            line-height: 60px;
+        }
+        .counter{
+            height: 100px;
+            display: flex;
+            font-family: 'Orbitron';
+            font-size: 100px;
+            font-weight: 450;
+            clip-path: polygon(0 0 , 100% 0, 100% 100% , 0 100%);
+            .digit-1,
+            .digit-2,
+            .digit-3,
+            .digit-4{
+                position: relative;
+                top: -15px;
+            }
+            .offset{
+                position: relative;
+                right: -7.5px;
+            }
+        }
+        .progress-bar{
+            position: relative;
+            top: -15px;
+            width: 0%;
+            height: 4px;background-color: black;
+        }
+    }
+    .hero-imgs{
+        position: relative;
+        width: 95%;
+        height: 95%;
+        overflow: hidden;
+        z-index: 0;
+        top: -50px;
+        left: -50px;
+        transform: scale(0.95);
+        will-change: transform;
+       img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            clip-path: polygon(100% 0%, 100% 0%,100% 100%, 100% 100%);
+        }
+    }
+}
