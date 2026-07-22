@@ -1,0 +1,60 @@
+.searchBar{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000056;
+    z-index: 13;
+    .searchBarContainer{
+        position: relative;
+        width: 70%;
+        height: 60%;
+        background-color: #f6f5f5;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        .cancelBar{
+           position: absolute;
+           right: 3px;
+           top: 3px;
+           padding: 5px;
+           background-color: #e5e5e5;
+           border-radius: 10px;
+           border: none;
+            cursor: pointer;
+        }
+        .searchInputSection{
+            flex: 1;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            input{
+                width: 70%;
+                height: 55%;
+                padding-left: 10px;
+                outline: none;
+                border: none;
+                border-top-left-radius:10px ;
+                border-bottom-left-radius:10px ;
+                &::placeholder{
+                    padding-left: 10px;
+                }
+            }
+            .searchFood{
+                width: 50px;
+                height: 55%;
+                border: none;
+                border-top-right-radius:10px ;
+                border-bottom-right-radius:10px ;
+                background-color: rgb(254, 255, 255);
+                cursor: pointer;
+            }
+        }
+        .displayResultSection{
+            flex: 3;
+        }
+    }
+}

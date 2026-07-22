@@ -18,7 +18,7 @@ import mustard from '../../assets/mustard.png'
 import timo2 from '../../assets/timo1.png'
 import SingleOnion from '../../assets/SingleOnion.png'
 import theBurger from '../../assets/theBurger.png'
-import shawarma from '../../assets/shawarma.png'
+import shawarma2 from '../../assets/shawarma2.png'
 import chicken from '../../assets/chicken.png'
 import singleCircleOnion from '../../assets/singleCircleOnion.png'
 import TheBestBurgerOnlyForYou from '../../assets/The-best-burger-only-for-you.jpg'
@@ -36,24 +36,36 @@ import Frame from '../../assets/Frame.png';
 import group from '../../assets/group.png';
 import bag from '../../assets/bag.png';
 import cards from '../../assets/cards.png';
-import teenagers from '../../assets/teenagers.jpg';
-import teenagers1 from '../../assets/teenagers1.jpg';
 import Line1 from '../../assets/Line1.png';
 import rawTellBirrLogo from '../../assets/rawTellBirrLogo-removebg-preview.png';
 import burgerWithWomenBlackAndWhite from '../../assets/burgerWithWomenBlackAndWhite.webp';
 import hamburger from '../../assets/hamburger.webp';
+import teenagers2 from '../../assets/teenagers2.webp';
+import teenagers3 from '../../assets/teenagers3.webp';
+import teenagers4 from '../../assets/teenagers4.webp';
+import teenagers1 from '../../assets/teenagers1.webp';
+import teenagers5 from '../../assets/teenagers5.webp';
+import teenagers6 from '../../assets/teenagers6.webp';
+import teenagers7 from '../../assets/teenagers7.webp';
+import teenager8 from '../../assets/teenager8.webp';
 import ThinkingFace from '../../assets/ThinkingFace.mp4';
 export default {
 theBurger,
 ThinkingFace,
-teenagers,
+teenagers2,
+teenagers3,
+teenagers4,
 teenagers1,
+teenagers5,
+teenagers6,
+teenagers7,
+teenager8,
 group,
 bag,
 cards,
 rawTellBirrLogo,
 Line1,
-shawarma,
+shawarma2,
 chicken,
 bigStart,
 curvedArrow,

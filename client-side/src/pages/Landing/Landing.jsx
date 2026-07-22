@@ -11,7 +11,8 @@ import WhyWeGetChosen from '../../componets/WhyWeGetChosed/WhyWeGetChosen.jsx';
 import Footer from '../../componets/footer/footer.jsx';
 import { Link } from 'react-router-dom';
 import RevealingWebEntrance from '../../componets/revealingWebEntrance/revealingWebEntrance.jsx';
-import { splitTextIntoSpan } from '../../componets/containers/functionContainer.js';
+import { headerFont, headerPharagraphFont, splitTextIntoSpan } from '../../componets/containers/functionContainer.js';
+import { motion, useInView } from "motion/react"
 const Landing =()=>{
     useGSAP(() => {
             gsap.registerPlugin(ScrollTrigger);
@@ -139,8 +140,10 @@ const Landing =()=>{
                     <div className="LandingContainer">
                         <div className="theLeftSideOfTheBoard">
                             <div className="theLeftSideOfTheBoardContainer">
-                                <h1>your Craving <strong>Just</strong> Found <strong>a</strong>t home</h1>
-                                <p>Life is too short to miss out on double cheese burger.</p>
+                                <motion.h1 variants={headerFont} initial='initial' animate='animate'>
+                                    your Craving <strong>Just</strong> Found <strong>a</strong>t home
+                                </motion.h1>
+                                <motion.p variants={headerPharagraphFont} initial='initial' animate='animate'>Life is too short to miss out on double cheese burger.</motion.p>
                                 <Link to='/home'>
                                     <button className="orderNowCfa">
                                         <img src={images.mustard} alt="" />

@@ -1,3 +1,4 @@
+import { delay } from 'motion/react';
 import images from '../containers/container'
 
 export function getClosestImage(images, heroPoint) {
@@ -144,3 +145,63 @@ export const foodList = [
                             element.innerHTML = splitText;
        } 
     }
+    export const headerFont = {
+        initial:{
+            y:50,
+            opacity:0,
+        },
+        animate:{
+            y:0,
+            opacity:1,
+            transition:{
+                duration:2,
+                ease:'easeOut',
+                delay: 6.5,
+            },
+        }
+    }
+    export const headerPharagraphFont = {
+        initial:{
+            y:50,
+            opacity:0,
+        },
+        animate:{
+            y:0,
+            opacity:1,
+            transition:{
+                duration:2,
+                ease:'easeOut',
+                delay: 7,
+            },
+        }
+    }
+    export const sideViewHeader  = {
+        initial:{
+            x:-50,
+            opacity:0,
+        },
+        animate:{
+            x:0,
+            opacity:1,
+            transition:{
+                duration:2,
+                ease:'easeOut',
+            },
+        }
+    }
+    export const sideViewParagraph  = {
+        initial:{
+            x:-50,
+            opacity:0,
+        },
+        animate:{
+            x:0,
+            opacity:1,
+            transition:{
+                duration:2,
+                ease:'easeOut',
+                delay:1
+            },
+        }
+    }
+   

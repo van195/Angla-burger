@@ -155,13 +155,14 @@ const RevealingWebEntrance = ()=>{
                         <div className="progress-bar"></div>
                     </div>
                     <div className="hero-imgs">
-                        <img src={images.teenagers} alt="" />
+                        <img src={images.teenagers7} alt="" />
                         <img src={images.teenagers1} alt="" />
-                        <img src={images.teenagers} alt="" />
-                        <img src={images.teenagers1} alt="" />
-                        <img src={images.teenagers} alt="" />
-                        <img src={images.teenagers1} alt="" />
-                        <img src={images.teenagers} alt="" />
+                        <img src={images.teenagers3} alt="" />
+                        <img src={images.teenagers4} alt="" />
+                        <img src={images.teenagers5} alt="" />
+                        <img src={images.teenagers6} alt="" />
+                        <img src={images.teenagers2} alt="" />
+                        <img src={images.teenager8} alt="" />
 
                     </div>
                </section>

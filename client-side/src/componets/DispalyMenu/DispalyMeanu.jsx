@@ -4,8 +4,9 @@ import {foodCategory, foodList} from '../containers/functionContainer'
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import { useEffect, useState } from 'react';
 import { useFoodContext } from '../../context/foodContext';
+import { useSearchContext } from '../../context/searchContext';
 const DisplayMenu = ()=>{
-      const [pop , setPop ] = useState(null);
+      const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
       const {FoodLists,setFoodList} = useFoodContext()
       const [activated , setActivated] = useState('Burger')
       const addToCart = (item)=>{
@@ -31,7 +32,7 @@ const DisplayMenu = ()=>{
             <div className="DisplayMenuContainer">
                 <div className="searchContainer">
                  <h1>All offer from angla, addis abeba </h1>
-                  <button onClick={()=>setPop(true)} className="searchIdentifire">
+                  <button onClick={()=>setSearchButtonClicked(true)} className="searchIdentifire">
                     <p>search...</p>
                   </button>
                 </div>

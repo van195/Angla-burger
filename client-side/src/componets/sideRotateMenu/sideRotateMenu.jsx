@@ -5,10 +5,13 @@ import images from '../../componets/containers/container'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { MotionPathPlugin, ScrollTrigger } from 'gsap/all';
-import { getClosestImage } from '../containers/functionContainer';
+import { getClosestImage, headerFont, headerPharagraphFont, sideViewHeader, sideViewParagraph } from '../containers/functionContainer';
+import { useInView, motion } from 'motion/react';
 gsap.registerPlugin(ScrollTrigger , MotionPathPlugin) ;
 const SideRotateMenu = () => {
-        const carousel= document.querySelector(".carousel");
+    const ref = useRef();
+    const IsInView = useInView(ref,{margin:'-200px'})    
+    const carousel= document.querySelector(".carousel");
     const heroPoint = {
           x: window.innerWidth * 0.82,
           y: 170
@@ -72,12 +75,12 @@ const SideRotateMenu = () => {
    scope: carousel
 })
   return (
-    <div className='sideRotateMenu'>
+    <div className='sideRotateMenu'ref={ref}>
         <InfiniteSideScroll/>
-        <div className="sideRotateMenuContainer">
-          <div className="left">
-            <div className="leftContainer">
-              <h1>Find your next craving</h1>
+        <div className="sideRotateMenuContainer" >
+          <motion.div className="left">
+            <motion.div className="leftContainer">
+              <motion.h1 variants ={sideViewHeader} initial='initial' animate={IsInView ? 'animate':'initiate'} >Find your next craving</motion.h1>
                 <p>
                     Explore handcrafted burgers, wraps, fried chicken, and more 
                     every spin reveals another irresistible favorite.
@@ -88,8 +91,8 @@ const SideRotateMenu = () => {
                     to satisfy every craving from the very first taste.
                </p>
                <button className="Explore">Explore</button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           <div className="right">
              <div className="carouselContainer">
                 <div className="carousel">
@@ -105,7 +108,7 @@ const SideRotateMenu = () => {
                     
                         <img src={images.theBurger} alt="" />
                         <img src={images.chicken} alt="" />
-                        <img src={images.shawarma} alt="" />
+                        <img src={images.shawarma2} alt="" />
                 
                 </div>
              </div>
