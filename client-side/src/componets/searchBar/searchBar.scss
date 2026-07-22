@@ -55,6 +55,32 @@
         }
         .displayResultSection{
             flex: 3;
+            .preSearchView{
+                padding-left:40px;
+                display: flex;
+                flex-direction: column;
+                h2{
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    font-weight: 500;
+                    font-size:20px ;
+                }
+                .theListPartOfRecommendation{
+                  flex: 2;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 10px;
+
+                  .recommendationItem{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                  }
+                }
+            }
         }
     }
 }

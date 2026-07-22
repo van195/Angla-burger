@@ -204,4 +204,26 @@ export const foodList = [
             },
         }
     }
-   
+    export const autoSearchLists = [
+        { 
+            id:1,
+           title:'beef burgers',
+       },
+        { 
+            id:2,
+           title:'Chicken burgers',
+       },
+        { 
+            id:3,
+           title:'Special burgers',
+       },
+        { 
+            id:4,
+           title:'Butter burgers',
+       }
+       ,
+        { 
+            id:5,
+           title:'cheese melt burgers',
+       }
+    ]
