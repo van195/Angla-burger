@@ -4,6 +4,7 @@ import { useFoodContext } from '../../context/foodContext';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getTotalBill } from '../containers/functionContainer';
+import { AnimatePresence,motion } from 'motion/react';
 const CheckOutBoard = ()=>{
         const {FoodLists,setFoodList} = useFoodContext();
         const total = getTotalBill(FoodLists)
@@ -12,57 +13,61 @@ const CheckOutBoard = ()=>{
             <div className="checkOutBoardContainer">
                 <h2>Orders</h2>
                 <div className="theCarts">
-                   { FoodLists.length >= 1 ?
-                   ( FoodLists.map((item)=>(
-                    <div className="theCartsContainer" key={item.id}>
-                        <div className="displayFoods">
-                            <img src={item.image} alt="" />
-                            <h4 className="title">{item.title}</h4>
-                        </div>
-                        <div className="ManagePieces">
-                            <button className="increase" onClick={() =>
-                                    setFoodList(prev =>
-                                    prev.map(food =>
-                                        food.id === item.id
-                                        ? { ...food, quantity: food.quantity + 1 }
-                                        : food
-                                    )
-                                    )}>
-                                        +
-                            </button>
-                            <p className="displayThePieces">{item.quantity}</p>
-                            <button className="decrease" onClick={() =>
-                                    setFoodList(prev =>
-                                    prev.map(food =>
-                                        food.id === item.id && food.quantity >= 2
-                                        ? { ...food, quantity: food.quantity - 1 }
-                                        : food
-                                    )
-                                    )}>-</button>
-                        </div>
-                    </div>
-                   )))
-                   :(   
-                   <div className="haventOrderYet">
-                       <video autoPlay
-                                loop
-                                muted
-                                playsInline>
-                                    <source src={images.ThinkingFace} type="video/mp4" />
-                                </video>
-                   </div>  
-                   )}
-                    {/*<div className="theCartsContainer">
-                        <div className="displayFoods">
-                            <img src={images.hamburger} alt="" />
-                            <h4 className="title">hamburger</h4>
-                        </div>
-                        <div className="ManagePieces">
-                            <button className="increase" onClick={()=> setPiecesCounter((item)=>item + 1)}>+</button>
-                             <p className="displayThePieces">{piecesCounter}</p>
-                            <button className="decrease" onClick={()=> setPiecesCounter((item)=>item <= 0 ?  item : item - 1)}>-</button>
-                        </div>
-                    </div>*/}
+                        { FoodLists.length >= 1 ?
+                        ( FoodLists.map((item)=>(
+                            <motion.div
+                             className="theCartsContainer"
+                              key={item.id}
+                              initial={{opacity:0,y:50}}
+                              animate={{opacity:1,y:0}}>
+                                <div className="displayFoods">
+                                    <img src={item.image} alt="" />
+                                    <h4 className="title">{item.title}</h4>
+                                </div>
+                                <div className="ManagePieces">
+                                    <button className="increase" onClick={() =>
+                                            setFoodList(prev =>
+                                            prev.map(food =>
+                                                food.id === item.id
+                                                ? { ...food, quantity: food.quantity + 1 }
+                                                : food
+                                            )
+                                            )}>
+                                                +
+                                    </button>
+                                    <p className="displayThePieces">{item.quantity}</p>
+                                    <button className="decrease" onClick={() =>
+                                            setFoodList(prev =>
+                                            prev.map(food =>
+                                                food.id === item.id && food.quantity >= 2
+                                                ? { ...food, quantity: food.quantity - 1 }
+                                                : food
+                                            )
+                                            )}>-</button>
+                                </div>
+                            </motion.div>
+                        )))
+                        :(   
+                        <div className="haventOrderYet">
+                            <video autoPlay
+                                        loop
+                                        muted
+                                        playsInline>
+                                            <source src={images.ThinkingFace} type="video/mp4" />
+                                        </video>
+                        </div>  
+                        )}
+                            {/*<div className="theCartsContainer">
+                                <div className="displayFoods">
+                                    <img src={images.hamburger} alt="" />
+                                    <h4 className="title">hamburger</h4>
+                                </div>
+                                <div className="ManagePieces">
+                                    <button className="increase" onClick={()=> setPiecesCounter((item)=>item + 1)}>+</button>
+                                    <p className="displayThePieces">{piecesCounter}</p>
+                                    <button className="decrease" onClick={()=> setPiecesCounter((item)=>item <= 0 ?  item : item - 1)}>-</button>
+                                </div>
+                            </div>*/}
                 </div>
                 <div className="theDescription">
                     <div className="theDescriptionList">
