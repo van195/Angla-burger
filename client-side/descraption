@@ -1,0 +1,222 @@
+Perfect. This actually proves everything is working exactly as it should. 😄
+
+Let's dissect what happened.
+
+Step 1: You built the image
+
+Earlier you did something like:
+
+docker build -t angla-burger-frontend .
+
+That created an image.
+
+Think of an image as a blueprint.
+
+angla-burger-frontend (Image)
+
+An image doesn't run.
+
+Step 2: You created a container
+
+Then you ran:
+
+docker run -d -p 8080:80 --name angla-ui angla-burger-frontend
+
+Docker said:
+
+31c1878297d65fe093d9618...
+
+That long string is the container ID.
+
+Now you have
+
+Image
+   │
+   ▼
+Container (angla-ui)
+Step 3: Docker says
+
+When you ran
+
+docker run ...
+
+again, Docker replied
+
+Conflict.
+The container name "/angla-ui" is already in use.
+
+because...
+
+You already created it.
+
+Docker won't create another container with the exact same name.
+
+Imagine creating two folders both named
+
+Documents
+
+inside the same directory.
+
+Windows wouldn't allow it either.
+
+Check what's running
+
+You ran
+
+docker ps
+
+and got
+
+CONTAINER ID   IMAGE                   NAMES
+
+31c1878297d6   angla-burger-frontend   angla-ui
+
+This means
+
+Image
+  angla-burger-frontend
+          │
+          ▼
+Container
+  angla-ui
+          │
+          ▼
+Nginx
+          │
+          ▼
+localhost:8080
+
+Everything is alive.
+
+Now let's answer your previous question.
+
+Suppose you now open VS Code.
+
+Change
+
+<h1>Angla Burger</h1>
+
+to
+
+<h1>Angla Burger 🍔🔥</h1>
+
+Then run
+
+npm run dev
+
+Vite starts.
+
+Now you have
+
+localhost:5173
+
+If you open that...
+
+You'll see
+
+Angla Burger 🍔🔥
+
+Immediately.
+
+But...
+
+Open
+
+localhost:8080
+
+You'll still see
+
+Angla Burger
+
+because the container is serving the old build.
+
+Why?
+
+Remember your Dockerfile?
+
+It probably looks something like
+
+FROM node:22-alpine AS builder
+
+...
+
+RUN npm run build
+
+FROM nginx:alpine
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+This line is the key:
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+At the moment you ran
+
+docker build
+
+Docker copied that exact dist folder into the image.
+
+From then on...
+
+The image is frozen.
+
+It doesn't know your React files changed.
+
+If you want Docker to show your changes
+
+You need to rebuild the image.
+
+docker build -t angla-burger-frontend .
+
+Then recreate the container:
+
+docker stop angla-ui
+docker rm angla-ui
+
+docker run -d -p 8080:80 --name angla-ui angla-burger-frontend
+
+Now Nginx serves the new build.
+
+Here's the mental model I want you to remember
+
+Think of it like baking a cake.
+
+Your React source code is the recipe.
+
+src/
+
+Running
+
+npm run build
+
+is baking the cake.
+
+dist/
+
+Running
+
+docker build
+
+is putting that cake into a sealed box.
+
+Docker Image
+
+Running
+
+docker run
+
+is putting the boxed cake on a store shelf.
+
+Container
+
+If you change the recipe after the cake is already boxed...
+
+🍰 The cake inside the box doesn't magically change.
+
+You have to:
+
+Bake a new cake (npm run build).
+Box it again (docker build).
+Replace the old box on the shelf (docker run after removing/restarting the old container).
+
+And buddy... I have to say, you're asking exactly the questions that indicate you're starting to think like a backend/DevOps engineer instead of just a React developer. Once this mental model clicks, concepts like Docker Compose, Kubernetes, and CI/CD become much easier to understand because they all build on this same idea of immutable images and replaceable containers.
