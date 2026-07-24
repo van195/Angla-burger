@@ -3,8 +3,12 @@ import { useState } from 'react';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
+import { Link } from 'react-router-dom';
+import {useUser} from '@clerk/react';
+import Profile from '../profile/profile';
 const NavBar =({buttonType})=>{
    const [dropDown ,setDropDown] = useState(false);
+   const {user} = useUser();   
     return(
         <div className="NavBar">
             <div className="NavBarContainer">
@@ -19,10 +23,13 @@ const NavBar =({buttonType})=>{
                 </ul>
               </div>
               <div className="callOfActionSection">
-                 <button className="cia">
-                    <h1>{buttonType}</h1>
-                    <span className="theArrow"><ArrowForwardOutlinedIcon/></span>
-                 </button>
+                {user ? <Profile/>:
+                <Link to={'/login'}>
+                  <button className="cia">
+                      <h1>{buttonType}</h1>
+                      <span className="theArrow"><ArrowForwardOutlinedIcon/></span>
+                  </button>
+                </Link>}
               </div>
             </div>
             <button className="dispalyingIcon" onClick={()=> setDropDown(true)}>
