@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     margin-top: -230px;
-    
+    z-index: 8;
     .DisplayMenuContainer{
         width: 100%;
         display: flex;
@@ -164,7 +164,7 @@
                                 height: 100%;
                                 background: linear-gradient(180deg,transparent,#0000005f);
                                 border-radius: 20px;
-                                z-index: 2;
+                                z-index: 1;
                             }
                         }
                         

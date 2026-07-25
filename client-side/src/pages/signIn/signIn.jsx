@@ -1,15 +1,22 @@
+import Loading from '../../componets/loading/loading';
 import './signIn.scss';
-import {SignIn} from '@clerk/react';
+import {SignIn, useUser} from '@clerk/react';
 
 const LogIn =()=>{
-    return(
-        <div className="SignIn">
-           <SignIn
-                path="/login"
-                routing="path"
-                signUpUrl="/new-register"
-           />
-        </div>
+    const {user, isLoaded}= useUser()
+    return(<>
+        
+        {
+            isLoaded ?
+            (<div className="SignIn">
+                <SignIn
+                        path="/login"
+                        routing="path"
+                        signUpUrl="/new-register"
+                />
+            </div>):
+            <Loading/>}
+    </>
     )
 }
 export default LogIn;

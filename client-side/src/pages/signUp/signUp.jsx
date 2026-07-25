@@ -1,14 +1,17 @@
 import './signUp.scss';
-import {SignUp} from '@clerk/react';
-
-const Register =()=>{
+import {SignUp, useAuth, useUser} from '@clerk/react';
+import axios from 'axios';
+import Loading from '../../componets/loading/loading'
+import { useEffect } from 'react';
+const Register = ()=>{
+    const {isLoaded} = useUser();
     return(
         <div className="signUp">
            {
-            <SignUp/> ? <SignUp 
+            isLoaded ? <SignUp 
                 path="/new-register"
                 routing="path"
-                signUpUrl="/login"
+                signInUrl="/login"
            />: <Loading/>
 
            }

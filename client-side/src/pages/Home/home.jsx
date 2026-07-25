@@ -10,9 +10,15 @@ import { useSearchContext } from '../../context/searchContext';
 import SearchBar from '../../componets/searchBar/searchBar';
 import { AnimatePresence,motion } from "motion/react"
 import Notification from '../../componets/notifications/notifications';
+import { useEffect } from 'react';
+import { useAuth, useUser } from '@clerk/react';
+import AuthSync from '../../util/AuthSynch';
 const Home = () =>  {
     const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
     const {FoodLists,setFoodList} = useFoodContext();
+    const {isSignedIn} = useAuth();
+    const {user} = useUser()
+   
     return(
         <div className="home">
             <NavBar
