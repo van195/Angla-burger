@@ -9,7 +9,6 @@ export const CreateAccount = async(req,res,next)=>{
     const clerkUser = await client.users.getUser(userId);
     try {
         const email = clerkUser.emailAddresses?.[0]?.emailAddress;
-        console.log(email);
         const existUser = await UserSchema.findOne({
             where:{
                 clerkId:userId

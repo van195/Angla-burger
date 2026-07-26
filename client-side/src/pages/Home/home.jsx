@@ -18,7 +18,7 @@ const Home = () =>  {
     const {FoodLists,setFoodList} = useFoodContext();
     const {isSignedIn} = useAuth();
     const {user} = useUser()
-   
+     
     return(
         <div className="home">
             <NavBar
