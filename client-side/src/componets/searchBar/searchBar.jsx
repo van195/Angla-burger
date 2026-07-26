@@ -5,10 +5,14 @@ import { useSearchContext } from '../../context/searchContext';
 import MovingOutlinedIcon from '@mui/icons-material/MovingOutlined';
 import {motion } from "motion/react"
 import { useState } from 'react';
+import useFetch from '../../util/useFetchHook';
 import { autoSearchLists } from '../containers/functionContainer';
 const SearchBar =()=>{
     const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
     const [autoSearch , setAutoSearch] = useState('');
+    const {data,loading} = useFetch(`http://localhost:8080/api/product/single-product?search=${autoSearch}`)
+    console.log(data);
+    
     return(
             <motion.div className="searchBar">
                 <motion.div className="searchBarContainer"
