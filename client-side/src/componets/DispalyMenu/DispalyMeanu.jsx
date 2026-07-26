@@ -5,10 +5,14 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import { useEffect, useState } from 'react';
 import { useFoodContext } from '../../context/foodContext';
 import { useSearchContext } from '../../context/searchContext';
+import axios from 'axios';
+import useFetch from '../../util/useFetchHook';
 const DisplayMenu = ()=>{
       const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
       const {FoodLists,setFoodList} = useFoodContext()
-      const [activated , setActivated] = useState('Burger')
+      const [activated , setActivated] = useState('Burger');
+      const [activatedList,setActivatedList]=useState(null);
+      const {loading, data} = useFetch('http://localhost:8080/api/category/list-category')   
       const addToCart = (item)=>{
         if(!item) return;
         setFoodList(prev => [...prev,
@@ -20,12 +24,15 @@ const DisplayMenu = ()=>{
                 price:item.paragraph,
             }
         ]); 
-               
       }
-      useEffect(()=>{
-        console.log(FoodLists);
-      },[FoodLists])
-      
+     const newList = async(categoryName)=>{
+        setActivated(categoryName);           
+        const activatedList = data?.find((items)=>{
+         return items.name === categoryName;
+        });
+        setActivatedList(activatedList?.products);
+        console.log(activatedList.products);
+     }
     return(
         <div className="DisplayMenu">
             
@@ -42,9 +49,9 @@ const DisplayMenu = ()=>{
                         <ul className='foodMenu'>
                             { foodCategory.map((item)=>(
                                 <li 
-                                className={ activated === item ? 'activated' :''}
-                                onClick={()=>{setActivated(item)}}>
-                                    {item}
+                                    className={ activated === item ? 'activated' :''}
+                                    onClick={()=>{newList(item)}}>
+                                        {item}
                                 </li>
                             ))
                             }

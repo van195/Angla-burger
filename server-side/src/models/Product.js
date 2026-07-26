@@ -13,7 +13,7 @@ const Product = sequelize.define('product',{
     },
     description:{
         type:DataTypes.TEXT,
-        allowNull:false
+        allowNull:true
     },
     price:{
         type:DataTypes.DECIMAL(10,2),
@@ -25,7 +25,7 @@ const Product = sequelize.define('product',{
     },
     image:{
         type:DataTypes.TEXT,
-        allowNull:false
+        allowNull:true
     },
     isAvailable:{
         type:DataTypes.BOOLEAN,
