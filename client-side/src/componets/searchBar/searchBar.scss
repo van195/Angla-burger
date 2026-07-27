@@ -111,11 +111,24 @@
                     box-shadow: 3px 3px 1px #00000019;
                     border-radius: 20px;
                     display: flex;
+                    border: none;
+                    cursor: pointer;
                     .displayingImage{
                         flex: 1;
+                        display: flex;
+                        align-items:center ;
+                        justify-content: center;
+                        img{
+                            width: 60px;
+                            height: 60px;
+                        }
                     }
                     .Description{
                         flex: 3;
+                        display: flex;
+                        align-items:flex-start ;
+                        justify-content: center;
+                        flex-direction: column;
                         h2{
                             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                             font-size: 18px;

@@ -9,9 +9,11 @@ import {motion } from "motion/react"
 import { useEffect, useState } from 'react';
 import useFetch from '../../util/useFetchHook';
 import { autoSearchLists } from '../containers/functionContainer';
+import { useFoodContext } from '../../context/foodContext';
 const SearchBar =()=>{
     const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
     const [autoSearch , setAutoSearch] = useState('');
+    const {FoodLists,setFoodList} = useFoodContext()
     const [debouncedSearch, setDebouncedSearch] = useState("");
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -24,7 +26,19 @@ const SearchBar =()=>{
     debouncedSearch
         ? `http://localhost:8080/api/product/single-product?search=${debouncedSearch}`
         : null
-);  
+    );      
+    const addToCart = (item)=>{
+        if(!item) return;
+        setFoodList(prev => [...prev,
+            {
+                id:item.id,
+                title:item.name,
+                image:item.image,
+                quantity:1,
+                price:item.price,
+            }
+        ]); 
+      }
 
     return(
             <motion.div className="searchBar">
@@ -64,16 +78,15 @@ const SearchBar =()=>{
                         ) : data?.length ? (
                             data.map((item) => (
                             <div className="searchedResult" key={item.id}>
-                                <div className="searchedResultContainer">
-                                <div className="displayingImage">
-                                    <img src="" alt="" />
-                                </div>
-
-                                <div className="Description">
-                                    <h2>{item.name}</h2>
-                                    <p>{item.price} birr</p>
-                                </div>
-                                </div>
+                                <button className="searchedResultContainer" onClick={()=>addToCart(item)}>
+                                    <div className="displayingImage">
+                                        <img src="" alt="" />
+                                    </div>
+                                    <div className="Description">
+                                        <h2>{item.name}</h2>
+                                        <p>{item.price} birr</p>
+                                    </div>
+                                </button>
                             </div>
                             ))
                         ) : (

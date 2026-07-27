@@ -9,7 +9,7 @@ const Address = sequelize.define('address',{
         autoIncrement:true
     },
     userId:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.UUID,
         allowNull:false
     },
     receiverName:{
@@ -24,7 +24,7 @@ const Address = sequelize.define('address',{
         type:DataTypes.TEXT,
         allowNull:false
     },
-    subCity:{
+    street:{
         type:DataTypes.TEXT,
         allowNull:false
     }

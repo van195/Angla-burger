@@ -7,7 +7,7 @@ import { getTotalBill } from '../containers/functionContainer';
 import { AnimatePresence,motion } from 'motion/react';
 const CheckOutBoard = ()=>{
         const {FoodLists,setFoodList} = useFoodContext();
-        const total = getTotalBill(FoodLists)
+        const total = getTotalBill(FoodLists);
     return(
         <div className="checkOutBoard">
             <div className="checkOutBoardContainer">
@@ -49,12 +49,9 @@ const CheckOutBoard = ()=>{
                         )))
                         :(   
                         <div className="haventOrderYet">
-                            <video autoPlay
-                                        loop
-                                        muted
-                                        playsInline>
-                                            <source src={images.ThinkingFace} type="video/mp4" />
-                                        </video>
+                            <video autoPlay loop muted playsInline>
+                                <source src={images.ThinkingFace} type="video/mp4" />
+                            </video>
                         </div>  
                         )}
                             {/*<div className="theCartsContainer">

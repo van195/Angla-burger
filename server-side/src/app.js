@@ -2,6 +2,8 @@ import express from 'express'
 import user from './routes/user.js'
 import Category from './routes/CatetagoryRoute.js'
 import product from './routes/productRoute.js'
+import address from './routes/addressRoute.js'
+import order from './routes/orderRoute.js'
 import cors from 'cors'
 import { clerkMiddleware } from "@clerk/express";
 const app = express();
@@ -11,6 +13,8 @@ const app = express();
     app.use('/api/users',user);
     app.use('/api/category',Category);
     app.use('/api/product',product);
+    app.use('/api/address',address);
+    app.use('/api/order',order);
     app.get('/',()=>{
         console.log('hello');
     })

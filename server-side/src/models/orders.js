@@ -9,7 +9,7 @@ const Orders = sequelize.define('order',{
         autoIncrement:true
     },
     userId:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.UUID,
         allowNull:false
     },
     subtotal:{
@@ -46,7 +46,7 @@ const Orders = sequelize.define('order',{
     },
     addressId:{
         type:DataTypes.INTEGER,
-        allowNull:false
+        allowNull:true
     }
 
 });
