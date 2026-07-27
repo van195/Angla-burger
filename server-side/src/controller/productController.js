@@ -26,14 +26,16 @@ export const getProducts = async(req,res,next)=>{
 }
 export const getSingleProducts = async(req,res,next)=>{
      const {search}= req.query;
+      
     try {
        const fetch = await Product.findAll({
         where: {
             name: {
                 [Op.iLike]: `%${search}%`
             }
-    }
-});
+        }
+       });       
+       if(fetch.length === 0) return res.status(200).json([]);
         return res.status(200).json(fetch);
     } catch (error) {
         console.error(error);
