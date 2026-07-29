@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 import Orders from "./orders.js";
  
-const  Payment= sequelize.define('payment',{
+const  Payment = sequelize.define('payment',{
     id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
@@ -17,7 +17,7 @@ const  Payment= sequelize.define('payment',{
         defaultValue:'tele birr'
     },
     transactionId:{
-        type:DataTypes.TEXT,
+        type:DataTypes.STRING,
         allowNull:false
     },
     status:{

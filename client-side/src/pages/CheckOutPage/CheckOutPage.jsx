@@ -1,7 +1,7 @@
 import './CheckOutPage.scss';
 import images from '../../componets/containers/container'
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../../componets/loading/loading'
 import { useFoodContext } from '../../context/foodContext';
 import { getTotalBill } from '../../componets/containers/functionContainer';
@@ -9,6 +9,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '@clerk/react';
 const CheckOutPage = ()=>{
+        const navigation = useNavigate()
         const { getToken } = useAuth();
         const {FoodLists,setFoodList } = useFoodContext();
         const total = getTotalBill(FoodLists);
@@ -24,7 +25,7 @@ const CheckOutPage = ()=>{
         console.log(formData);
         
         const handleClick=async ()=>{
-          setLoading(true);
+           setLoading(true)
           try {
             const token = await getToken();
             const addressRes = await axios.post('http://localhost:8080/api/address/create-address',
@@ -46,12 +47,31 @@ const CheckOutPage = ()=>{
                   Authorization: `Bearer ${token}`,
                 },
               });
-              console.log(OrderRes);
-              setTheId(OrderRes)
+              setTheId(OrderRes);
+            if(!OrderRes) return;
+            const res = await axios.post("http://localhost:8080/api/payment/create-payment",
+              { 
+                orderId:OrderRes?.data.id,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            console.log(res);
+            
+            if (res.data.status !== "success") {
+             alert("Unable to initialize payment");
+             return;
+            }
+            window.location.href = res?.data.data.checkout_url;
+            //const verification = await axios.get(`http://localhost:8080/api/payment/verify/${res?.data.transactionId}`)
           } catch (error) {
              setError(error);
+
           }finally{
-            setLoading(false)
+            setLoading(false);
           }
       
         }

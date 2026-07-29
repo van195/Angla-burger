@@ -6,6 +6,7 @@ import Register from "./pages/signUp/signUp";
 import LogIn from "./pages/signIn/signIn"
 import { useUser } from "@clerk/react";
 import AuthSync from "./util/AuthSynch";
+import PaymentSuccess from "./pages/paymentVerification/paymentVerification";
 const App = () => {
   //if(email) return <Home/>;
       const {user,isLoaded} = useUser();
@@ -33,6 +34,10 @@ const App = () => {
         <Route
         path='/checkout'
         element={<CheckOutPage/>}
+        />
+        <Route
+        path='/payment-success'
+        element={<PaymentSuccess/>}
         />
       </Routes>
     </>

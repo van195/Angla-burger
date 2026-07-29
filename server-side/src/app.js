@@ -4,6 +4,7 @@ import Category from './routes/CatetagoryRoute.js'
 import product from './routes/productRoute.js'
 import address from './routes/addressRoute.js'
 import order from './routes/orderRoute.js'
+import payment from './routes/paymentRoute.js'
 import cors from 'cors'
 import { clerkMiddleware } from "@clerk/express";
 const app = express();
@@ -15,6 +16,7 @@ const app = express();
     app.use('/api/product',product);
     app.use('/api/address',address);
     app.use('/api/order',order);
+    app.use('/api/payment',payment);
     app.get('/',()=>{
         console.log('hello');
     })
