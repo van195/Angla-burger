@@ -1,24 +1,22 @@
 import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import verifying from '../../assets/CreditCardPayment.mp4'
 export default function PaymentSuccess() {
     const [searchParams] = useSearchParams();
-
+    const navigation = useNavigate()
     useEffect(() => {
         const verify = async () => {
             const tx_ref = searchParams.get("tx_ref");
 
             if (!tx_ref) return;
-
             const res = await axios.get(
                 `http://localhost:8080/api/payment/verify/${tx_ref}`
-            );
-
-            console.log(res);
-            if(res.status === 200) {
-                return navigation('/onBoarding')
+            );            
+            if(res?.data.data.status === "success" && res?.status === 200) {
+             return navigation(`/trackingOrder/${res?.data.orderId}`)
             }
+           
         };
 
         verify();

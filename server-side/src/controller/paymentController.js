@@ -56,7 +56,6 @@ export const initializePayment = async (req, res, next)=>{
 
 export const verifyPayment = async (req, res) => {
     const { tx_ref } = req.params;
-
     try {
         const { data } = await axios.get(
             `https://api.chapa.co/v1/transaction/verify/${tx_ref}`,
@@ -66,7 +65,6 @@ export const verifyPayment = async (req, res) => {
                 },
             }
         );
-         console.log(data);
         if(data.status === "success" &&
            data.data.status === "success"){
              const payment = await Payment.findOne({
@@ -89,9 +87,16 @@ export const verifyPayment = async (req, res) => {
                 }
             );
         };
-        return res.sendStatus(200);
+        const payment = await Payment.findOne({
+                where: {
+                    transactionId: tx_ref
+                }
+            });        
+        return res.status(200).json({
+            data:data,
+            orderId:payment.orderId});
     } catch (err) {
-        console.log(err.response?.data);
+        console.log('error',err.response?.data);
         return res.sendStatus(500);
     }
 };

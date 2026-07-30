@@ -63,6 +63,30 @@ export const createOrder = async (req,res,next)=>{
    }
 
 }
+export const getSingleOrder = async (req,res,next)=>{
+    const {id} = req.params;
+   try {
+    const orderDetail = await Orders.findOne({
+        where:{
+            id:id
+        },
+        include:{
+            model:OrderItem,
+            include: [
+                {
+                    model: Product,
+                    attributes: ["id", "name", "price"], 
+                },
+            ]
+        }
+    });
+    res.status(200).json(orderDetail)
+   } catch (error) {
+     console.log(error)
+    res.status(500).json({ message: error.message }); 
+   }
+
+}
 /*const transaction = await sequelize.transaction();
 
 try {

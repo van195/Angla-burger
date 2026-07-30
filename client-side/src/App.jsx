@@ -7,6 +7,7 @@ import LogIn from "./pages/signIn/signIn"
 import { useUser } from "@clerk/react";
 import AuthSync from "./util/AuthSynch";
 import PaymentSuccess from "./pages/paymentVerification/paymentVerification";
+import TrackingOrder from "./pages/trackingOrder/trackingOrder";
 const App = () => {
   //if(email) return <Home/>;
       const {user,isLoaded} = useUser();
@@ -38,6 +39,10 @@ const App = () => {
         <Route
         path='/payment-success'
         element={<PaymentSuccess/>}
+        />
+        <Route
+        path='/trackingOrder/:id'
+        element={<TrackingOrder/>}
         />
       </Routes>
     </>
