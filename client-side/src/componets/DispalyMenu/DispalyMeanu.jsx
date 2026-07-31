@@ -7,32 +7,42 @@ import { useFoodContext } from '../../context/foodContext';
 import { useSearchContext } from '../../context/searchContext';
 import axios from 'axios';
 import useFetch from '../../util/useFetchHook';
+import Loading from '../loading/loading';
 const DisplayMenu = ()=>{
       const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
       const {FoodLists,setFoodList} = useFoodContext()
       const [activated , setActivated] = useState('Burger');
-      const [activatedList,setActivatedList]=useState(null);
-      const {loading, data} = useFetch('http://localhost:8080/api/category/list-category')   
+      const [activatedList,setActivatedList] = useState([]);
+      const {loading, data,error} = useFetch('http://localhost:8080/api/category/list-category')    
+      useEffect(() => {
+        if (!data?.length) return;
+        const burger = data.find(item => item.name === "Burger");
+        if (burger) {
+            setActivated("Burger");
+            setActivatedList(burger.products);
+            newList(activated)
+        }
+      }, [data]);
       const addToCart = (item)=>{
         if(!item) return;
         setFoodList(prev => [...prev,
             {
                 id:item.id,
-                title:item.title,
-                image:item.images,
+                title:item.name,
+                image:item.image,
                 quantity:1,
-                price:item.paragraph,
+                price:item.price,
             }
         ]); 
-      }
+      }      
      const newList = async(categoryName)=>{
+        console.log('catagory name',categoryName);
         setActivated(categoryName);           
         const activatedList = data?.find((items)=>{
          return items.name === categoryName;
         });
         setActivatedList(activatedList?.products);
-        console.log(activatedList.products);
-     }
+    }
     return(
         <div className="DisplayMenu">
             
@@ -64,13 +74,13 @@ const DisplayMenu = ()=>{
                     <div className="menuDisplayed">
                        <div className="menuDisplayedContainer">
                             <div className="DisplayingFood">
-                               {
-                                foodList && foodList.map((item , i)=>(
+                               { loading ? <Loading/>:
+                                activatedList?.map((item , i)=>(
                                 <div className="DisplayingFoodContainer" key={item.id}>
-                                    <img src={item.images} alt="" />
+                                    <img src={`/${item.image}`} alt="" />
                                     <div className="theText">
-                                        <h1>{item.title}</h1>
-                                        <p>{item.paragraph} birr</p>
+                                        <h1>{item.name}</h1>
+                                        <p>{item.price} birr</p>
                                         <button className='addToCart' onClick={()=>addToCart(item)}>Order Now <ArrowForwardIosOutlinedIcon style={{fontSize:'16px',fontWeight:300}}/></button>
                                     </div>
                                     <div className="blackShadow"></div>
