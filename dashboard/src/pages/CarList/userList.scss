@@ -1,0 +1,82 @@
+.carproductlist{
+     display: flex;
+     max-width: 1000px;
+     
+     .carproductlistContainer{
+        flex: 5;
+        max-width: 1050px;
+        
+
+        .carListContailnerTitle{
+            margin-top: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: 1000px;
+        }
+     }
+     .cellWithStatus{
+        border-radius: 5px;
+    &.active{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 30px;
+        color: green;
+        
+        background-color: rgba(0, 128, 0,0.151);
+    }
+    &.pending{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 30px;
+        color:goldenrod;
+        background-color: rgba(189, 189, 3,0.103);
+        
+    }
+
+ }
+ .cellAction{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+       .viewButton{
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 35px;
+        padding: 2px 8px;
+        border-radius: 5px;
+        color: rgb(4, 4, 49);
+        border: 1px dotted rgba(1, 1, 75, 0.511);
+        text-align: center;
+        cursor: pointer;
+       }
+       .deleteButton{
+           margin-top: 5px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           text-align: center;
+           width: 80px;
+           height: 35px;
+           padding: 2px 5px;
+           border-radius: 5px;
+           color: rgba(220, 20, 60, 0.566); 
+           border: 1px dotted rgba(202, 22, 58, 0.445);
+           cursor: pointer;
+       }
+ }
+}

@@ -15,10 +15,9 @@ import { useAuth, useUser } from '@clerk/react';
 import AuthSync from '../../util/AuthSynch';
 const Home = () =>  {
     const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
-    const {FoodLists,setFoodList} = useFoodContext();
+    const {FoodLists,setFoodList,emptyChart} = useFoodContext();
     const {isSignedIn} = useAuth();
-    const {user} = useUser()
-     
+    const {user} = useUser()     
     return(
         <div className="home">
             <NavBar
@@ -37,6 +36,7 @@ const Home = () =>  {
                
             
             <div className="theMenu">
+                {emptyChart && <Notification type='cancel' title='Empty cart'/>}
                 {
                   FoodLists.length >= 1 ? <Notification
                   type='success'

@@ -2,10 +2,12 @@ import './checkOutBoard.scss';
 import images from '../containers/container'
 import { useFoodContext } from '../../context/foodContext';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getTotalBill } from '../containers/functionContainer';
 import { AnimatePresence,motion } from 'motion/react';
+import Notification from '../notifications/notifications';
 const CheckOutBoard = ()=>{
+        const navigate = useNavigate()
         const {FoodLists,setFoodList} = useFoodContext();
         const total = getTotalBill(FoodLists);
     return(
@@ -54,17 +56,6 @@ const CheckOutBoard = ()=>{
                             </video>
                         </div>  
                         )}
-                            {/*<div className="theCartsContainer">
-                                <div className="displayFoods">
-                                    <img src={images.hamburger} alt="" />
-                                    <h4 className="title">hamburger</h4>
-                                </div>
-                                <div className="ManagePieces">
-                                    <button className="increase" onClick={()=> setPiecesCounter((item)=>item + 1)}>+</button>
-                                    <p className="displayThePieces">{piecesCounter}</p>
-                                    <button className="decrease" onClick={()=> setPiecesCounter((item)=>item <= 0 ?  item : item - 1)}>-</button>
-                                </div>
-                            </div>*/}
                 </div>
                 <div className="theDescription">
                     <div className="theDescriptionList">
@@ -84,9 +75,10 @@ const CheckOutBoard = ()=>{
                         <h5> {total + 60}$</h5>
                     </div>
                 </div>
-                <Link to='/checkout'>
-                    <button className="processToCheckOut">Process to check out</button>
+                {<Link to='/checkout'>
+                 <button className="processToCheckOut" >Process to check out</button>
                 </Link>
+                }
             </div>
         </div>
     )

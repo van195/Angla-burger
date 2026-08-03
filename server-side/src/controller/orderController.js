@@ -9,7 +9,7 @@ export const createOrder = async (req,res,next)=>{
     const transaction = await sequelize.transaction();
     const {FoodList,addressId}= req.body;
     console.log('we got both ',FoodList,addressId , );
-    const {userId} = req.auth();
+    const { userId } = req.auth();
     console.log('and fucking id',userId);
     const subtotal = await getSubtotalBill(FoodList);
         console.log('the subtotal',subtotal);

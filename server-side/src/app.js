@@ -6,10 +6,18 @@ import address from './routes/addressRoute.js'
 import order from './routes/orderRoute.js'
 import payment from './routes/paymentRoute.js'
 import cors from 'cors'
+import helmet from 'helmet'
 import { clerkMiddleware } from "@clerk/express";
 const app = express();
     app.use(express.json());
-    app.use(cors());
+    app.use(helmet());
+    app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:5174"
+    ],
+    credentials: true
+    }));
     app.use(clerkMiddleware());
     app.use('/api/users',user);
     app.use('/api/category',Category);

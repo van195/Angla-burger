@@ -7,9 +7,11 @@ import { useFoodContext } from '../../context/foodContext';
 import { getTotalBill } from '../../componets/containers/functionContainer';
 import { useState } from 'react';
 import axios from 'axios';
-import { useAuth } from '@clerk/react';
+import { useAuth, useClerk, useUser } from '@clerk/react';
 const CheckOutPage = ()=>{
         const navigation = useNavigate()
+        const { openSignIn } = useClerk();
+        const {user,isLoaded} = useUser()
         const { getToken } = useAuth();
         const {FoodLists,setFoodList } = useFoodContext();
         const total = getTotalBill(FoodLists);
@@ -25,6 +27,10 @@ const CheckOutPage = ()=>{
         console.log(formData);
         
         const handleClick=async ()=>{
+          if (!user) {
+             openSignIn();
+              return;
+            }
            setLoading(true)
           try {
             const token = await getToken();
@@ -60,13 +66,11 @@ const CheckOutPage = ()=>{
               }
             );
             console.log(res);
-            
             if (res.data.status !== "success") {
              alert("Unable to initialize payment");
              return;
             }
             window.location.href = res?.data.data.checkout_url;
-            //const verification = await axios.get(`http://localhost:8080/api/payment/verify/${res?.data.transactionId}`)
           } catch (error) {
              setError(error);
 
@@ -121,7 +125,7 @@ const CheckOutPage = ()=>{
                   <input type="phone" placeholder='phone ...' value={formData.phone} onChange={(e)=>setFormData({...formData,phone:e.target.value})}/>
                   <input type="text" placeholder='city ...' value={formData.city} onChange={(e)=>setFormData({...formData,city:e.target.value})}/>
                   <input type="text" placeholder='street ...' value={formData.street} onChange={(e)=>setFormData({...formData,street:e.target.value})}/>
-                  <button className="OrderTheMeal" onClick={ handleClick }>Order</button>
+                  <button disabled={!user || !isLoaded} className="OrderTheMeal" onClick={ handleClick }>{user ? "Order" : "login to Order"}</button>
                 </div>
               </div>
               <div className="recheckTheOrder">

@@ -23,6 +23,8 @@ const DisplayMenu = ()=>{
             newList(activated)
         }
       }, [data]);
+      console.log(data);
+      
       const addToCart = (item)=>{
         if(!item) return;
         setFoodList(prev => [...prev,
@@ -67,8 +69,7 @@ const DisplayMenu = ()=>{
                             }
                         </ul>
                         <ul className='drinkMenu'>
-                            <li>Ice Cream</li>
-                            <li> coca</li>
+                            <li className={'activated'} > soft drinks</li>
                         </ul>
                     </div>
                     <div className="menuDisplayed">
@@ -89,15 +90,22 @@ const DisplayMenu = ()=>{
                               }
                             </div>
                             <div className="DisplayingDrinks">
-                                <div className="DisplayingFoodContainer">
-                                    <img src={images.coffee} alt="" />
-                                    <div className="theText">
-                                        <h1>spris coffee</h1>
-                                        <p>670 birr</p>
-                                        <button className='addToCart'>Order Now <ArrowForwardIosOutlinedIcon style={{fontSize:'16px',fontWeight:300}}/></button>
-                                    </div>
-                                    <div className="blackShadow"></div>
-                                </div>
+                               { data 
+                                  ?.find(category => category.name === "soft drink")
+                                  ?.products?.map((item)=>(
+                                  <>
+                                    <div className="DisplayingFoodContainer">
+                                            <img src={`/${item.image}`} alt="" />
+                                            <div className="theText">
+                                               <h1>{item.name}</h1>
+                                               <p>{item.price} birr</p>
+                                                <button className='addToCart' onClick={()=>addToCart(item)}>Order Now <ArrowForwardIosOutlinedIcon style={{fontSize:'16px',fontWeight:300}}/></button>
+                                            </div>
+                                            <div className="blackShadow"></div>
+                                        </div>
+                                 </>
+                               ))
+                               }
                             </div>
                        </div>
                     </div>

@@ -13,10 +13,10 @@ export const useFoodContext = () => {
 };
 const FoodProvider = ({ children }) => {
   const [FoodLists, setFoodList] = useState([]);
-  const [total , setTotal] = useState(0)
-
   // The fix: Memoize the value. It only changes when FoodLists changes.
-  const value = useMemo(() => ({ FoodLists, setFoodList,total , setTotal }), [FoodLists]);
+  const value = useMemo(() => ({ FoodLists, setFoodList
+    
+  }), [FoodLists]);
 
   return (
     <FoodContext.Provider value={value}>
