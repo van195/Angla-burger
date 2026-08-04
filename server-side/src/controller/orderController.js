@@ -1,4 +1,5 @@
 import sequelize from "../config/db.js";
+import Address from "../models/address.js";
 import OrderItem from "../models/orderItem.js";
 import Orders from "../models/orders.js";
 import Product from "../models/Product.js";
@@ -79,6 +80,30 @@ export const getSingleOrder = async (req,res,next)=>{
                 },
             ]
         }
+    });
+    res.status(200).json(orderDetail)
+   } catch (error) {
+     console.log(error)
+    res.status(500).json({ message: error.message }); 
+   }
+
+}
+export const getAllOrders = async (req,res,next)=>{
+   try {
+    const orderDetail = await Orders.findAll({
+        include: [
+                {
+                    model: OrderItem,
+                    include: [
+                        {
+                            model: Product
+                        }
+                    ]
+                },
+                {
+                    model: Address
+                }
+            ]
     });
     res.status(200).json(orderDetail)
    } catch (error) {

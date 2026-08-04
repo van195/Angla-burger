@@ -6,11 +6,14 @@ import DataTable from "../../componets/dataTable/dataTable.jsx";
 import ChoseProduct from "../choseProduct/choseProduct.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useFoodContext } from "../../context/foodListContext.jsx";
 
 
 const List = ()=>{
+    const {activated, setActivated}= useFoodContext();
     const [data , setDate] = useState(null);
     const [error , setError] = useState(null);
+    const [activatedNewList,setActivatedNewList] = useState(null)
     useEffect(()=>{
         const fetchData =async()=>{
             try {
@@ -22,14 +25,25 @@ const List = ()=>{
 
         }
         fetchData();
+        newList();
     },[]);
+     const newList =()=>{
+            const activatedList = data?.find((items)=>{
+             return items.name === activated;
+            });
+            setActivatedNewList(activatedList?.products)
+        }
+    console.log(data);
+    console.log(activatedNewList);
     return(
         <div className="list">
             <Sidebar/>
             <div className="listContainer">
                  <Navbar/>
                  <ChoseProduct/>
-                 <DataTable/>
+                 <DataTable
+                  data={activatedNewList}
+                 />
 
             </div>
         </div>

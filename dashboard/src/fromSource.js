@@ -58,47 +58,13 @@ export const CarInput = [
         type:"text",
         paceholdre:"description..."
     },
-    {
-        id:"3",
-        label:"Category",
-        name:"transmition",
-        type:"text",
-        paceholdre:"manual.. automatic."
-    },
+    
     {
         id:"4",
         label:"Price",
         name:"price",
         type:"text",
         paceholdre:"100...."
-    },
-    {
-        id:"5",
-        label:"Manufactored By",
-        name:"manufactor",
-        type:"text",
-        paceholdre:"toyota...."
-    },
-    {
-        id:"6",
-        label:" Year",
-        name:"year",
-        type:"text",
-        paceholdre:"2017..."
-    },
-    {
-        id:"7",
-        label:"Seating Capacity",
-        name:"seatingCapacity",
-        type:"text",
-        paceholdre:"6...."
-    },
-    {
-        id:"8",
-        label:"HorsePower",
-        name:"horsePower",
-        type:"text",
-        paceholdre:"in stock...."
     },
    
      {

@@ -17,26 +17,39 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { data } from "../../util/arrayContainer.js";
 
-const Single = ()=>{
+const Single = ({type})=>{
  const location= useLocation()
  const id = location.pathname.split("/")[2];
  const [userDetail,setUserDetail] = useState(null);
- const [userTransaction,setUserTransaction] = useState([]);
  const [error, setError]=useState(null);
  
       
 useEffect(()=>{
-  const listUsers= async()=>{
-    try {
-      const res = await axios.get(`http://localhost:8080/api/users/get-single-Users/${id}`);
-        setUserDetail(res.data)
-    } catch (error) {
-      setError(error);
-    }
+  if(type === 'user'){
+      const listUsers= async()=>{
+        try {
+          const res = await axios.get(`http://localhost:8080/api/users/get-single-Users/${id}`);
+            setUserDetail(res.data)
+        } catch (error) {
+          setError(error);
+        }
+      }
+      listUsers();
   }
-  listUsers();
-},[id])
+  if(type === 'product'){
+      const listUsers= async()=>{
+        try {
+          const res = await axios.get(`http://localhost:8080/api/product/withOut-SearchSingle-product/${id}`);
+            setUserDetail(res.data)
+        } catch (error) {
+          setError(error);
+        }
+      }
+      listUsers();
+  }
 
+},[id,type])
+console.log(userDetail);
     return(
         <div className="single">
             <Sidebar/>
@@ -47,30 +60,54 @@ useEffect(()=>{
                         <div className="editButton">Edit</div>
                         <h1 className="title">Inforamtion</h1>
                         
-                        {
-                           <div className="items">
-                            <div className="details">
-                                <h1 className="itemsTitle">{userDetail?.username}</h1>
-                                <div className="DetailItem">
-                                    <span className="itemKey">Email:</span>
-                                    <span className="itemValue">{userDetail?.email}</span>
-                                </div>
-                                <div className="DetailItem">
-                                    <span className="itemKey">role:</span>
-                                    <span className="itemValue">{userDetail?.role}</span>
-                                </div>
-                                <div className="DetailItem">
-                                    <span className="itemKey">Address:</span>
-                                    <span className="itemValue">{userDetail?.address}</span>
-                                </div>
-                                <div className="DetailItem">
-                                    <span className="itemKey">Counter:</span>
-                                    <span className="itemValue">{userDetail?.country}</span>
-                                </div>
+                            { type === 'user' &&
+                                <div className="items">
+                                    <div className="details">
+                                        <h1 className="itemsTitle">{userDetail?.username}</h1>
+                                        <div className="DetailItem">
+                                            <span className="itemKey">Email:</span>
+                                            <span className="itemValue">{userDetail?.email}</span>
+                                        </div>
+                                        <div className="DetailItem">
+                                            <span className="itemKey">role:</span>
+                                            <span className="itemValue">{userDetail?.role}</span>
+                                        </div>
+                                        <div className="DetailItem">
+                                            <span className="itemKey">Address:</span>
+                                            <span className="itemValue">{userDetail?.address}</span>
+                                        </div>
+                                        <div className="DetailItem">
+                                            <span className="itemKey">Counter:</span>
+                                            <span className="itemValue">{userDetail?.country}</span>
+                                        </div>
 
-                            </div>
-                        </div>
-                        }
+                                    </div>
+                                </div>
+                            }
+                            { type === 'product' &&
+                                <div className="items">
+                                    <img src={`/${userDetail?.image}`} className="itemsImg" alt="" />
+                                    <div className="details">
+                                        <div className="DetailItem">
+                                            <span className="itemKey">Category:</span>
+                                            <span className="itemValue">{userDetail?.category.name}</span>
+                                        </div>
+                                        <div className="DetailItem">
+                                            <span className="itemKey">Name:</span>
+                                            <span className="itemValue">{userDetail?.name}</span>
+                                        </div>
+                                        <div className="DetailItem">
+                                            <span className="itemKey">Price:</span>
+                                            <span className="itemValue">{userDetail?.price}</span>
+                                        </div>
+                                        <div className="DetailItem">
+                                            <span className="itemKey">isAvailable:</span>
+                                            <span className="itemValue">{userDetail?.isAvailable}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
                     </div>
                     <div className="right">
                     

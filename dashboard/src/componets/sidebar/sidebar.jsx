@@ -18,7 +18,7 @@ const Sidebar = ()=>{
         <div className="sidebar">
             <div className="top">
                 <Link to="/" style={{textDecoration:"none"}}>
-                <span className="logo"><img src="/images.png" alt="" style={{width:'50px',height:'50px',objectFit:'cover'}} /></span>
+                 <span className="logo"><img src="/images.png" alt="" style={{width:'50px',height:'50px',objectFit:'cover'}} /></span>
                 </Link>
             </div>
             <div className="center">
@@ -40,7 +40,7 @@ const Sidebar = ()=>{
                         <span><ProductionQuantityLimitsIcon className="icon"/>Products</span>
                     </li>
                     </Link>
-                    <Link to="/users" className="theLink">
+                    <Link to="/orders" className="theLink">
                     <li>
                         <span><ChecklistOutlinedIcon className="icon"/>Orders</span>
                     </li>

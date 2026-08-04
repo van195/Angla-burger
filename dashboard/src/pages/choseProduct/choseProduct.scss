@@ -35,6 +35,10 @@
                     -webkit-box-shadow:2px 4px 10px 1px rgba(0,0,0,0.47);
                     box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47) ;
                 }
+                .rightHotel.activatedButton{
+                    background-color: rgba(98, 20, 255, 0.116);
+                    border: 1px solid rgb(255, 153, 255);
+                }
                 .activated{
                   background-color: rgba(248, 185, 248, 0.587);
                   border:1px solid rgb(248, 172, 248);  ;

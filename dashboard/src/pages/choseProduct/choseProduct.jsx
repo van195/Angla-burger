@@ -7,16 +7,22 @@ import "./choseProduct.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { foodCategory } from "../../util/container";
+import { useFoodContext } from "../../context/foodListContext";
 const ChoseProduct = ()=>{
+    const {activated, setActivated}=useFoodContext();
+    const handleClick = (categoryName)=>{
+        setActivated(categoryName)
+    }
+    console.log(activated);
+    
     return(
         <div className="choseProduct">
                 <div className="choseProductContainer">
                     <div className="itemschoseProduct">
                         <h1>Products category</h1>
-                     
                         <div className="itemsChoseProductContainer" >
                             { foodCategory.map((categoryName)=>(
-                            <button className="rightHotel">
+                            <button className={`rightHotel ${activated === categoryName && 'activatedButton' }`}  onClick={()=> handleClick(categoryName)}>
                                 {categoryName}
                             </button>
                             ))}

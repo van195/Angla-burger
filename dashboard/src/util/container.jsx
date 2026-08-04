@@ -2,26 +2,9 @@ import { Link } from "react-router-dom";
 
  export const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'email', headerName: 'Email', width: 230 },
-  { field: 'age', headerName: 'Age', type: 'number', width: 90,},
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    align:"center",
-    valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
-  },{ field: 'status', headerName: 'Status',  width: 120, 
-    renderCell:(params)=>{
-      return (
-        <div className={`cellWithStatus ${params.row?.status}`}>
-           {params.row?.status}
-        </div>
-      )
-    },
-     align:"center"},
+  { field: 'name', headerName: 'Item name', width: 130 },
+  { field: 'price', headerName: 'price', width: 230 },
+  { field: 'isAvailable', headerName: 'isAvailable', type: 'boolean', width: 90,},
   ];
 export const actionColumn = [
   {
@@ -31,7 +14,7 @@ export const actionColumn = [
     renderCell:(params)=>{
       return (
         <div className="cellAction">
-          <Link to={`/users/${params.row.id}`} style={{textDecoration:"none"}}>
+          <Link to={`/products/${params.row.id}`} style={{textDecoration:"none"}}>
           <div className="viewButton">
              View
           </div>
@@ -86,6 +69,38 @@ export const actionColumnUser = [
       return (
         <div className="cellAction">
           <Link to={`/users/${data.id}`}style={{textDecoration:"none"}}>
+          <div className="viewButton">
+             View
+          </div>
+          </Link>
+          <div className="deleteButton">
+            Delete
+          </div>
+        </div>
+      );
+    },
+  },
+];
+ export const columnsOrders = [
+  { field: 'id', headerName: 'Order ID', width: 70 },
+  { field: 'name', headerName: 'Items', width: 130,valueGetter: (value, row) => row.orderItems?.[0]?.product?.name || "" },
+  { field: 'total', headerName: 'Total Price', type:"number", width: 90,},
+  { field: 'Quantity', headerName: 'Quantity', width: 90,valueGetter: (value, row) => row.orderItems?.[0]?.quantity || "" },
+  { field: 'city', headerName: 'City', width: 90,valueGetter: (value, row) => row.address?.city || ""},
+  { field: 'street', headerName: 'Address', width: 90,valueGetter: (value, row) => row.address?.street || ""},
+  { field: 'receiverName', headerName: 'User Name', width: 90,valueGetter: (value, row) => row.address?.receiverName || ""},
+  { field: 'phone', headerName: 'phone', width: 90,valueGetter: (value, row) => row.address?.phone || ""},
+  { field: 'paymentStatus', headerName: 'Status',  width: 120,align:"center"},
+];
+export const actionColumnsOrders = [
+  {
+    field:"action",
+    headerName:"Action",
+    width:200,
+    renderCell:(params)=>{
+      return (
+        <div className="cellAction">
+          <Link to={`/orders/${params.row.id}`} style={{textDecoration:"none"}}>
           <div className="viewButton">
              View
           </div>

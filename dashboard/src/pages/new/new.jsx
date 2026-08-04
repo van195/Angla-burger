@@ -6,7 +6,7 @@ import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
 import "./new.scss";
 import axios from "axios";
 
-const New = ({inputs,title})=>{
+const New = ({inputs,title,type})=>{
     const [file, setFile] = useState();
     const[hotel, setHotel] = useState(false)
     const[packedData ,setPackedData] = useState({});
@@ -100,6 +100,15 @@ const New = ({inputs,title})=>{
                             <input type="file" multiple id="file" onChange={(e)=>{setFile(e.target.files)}} style={{display:"none"}}/>
                            {hotel && <p>Hold Ctrl/Cmd + click to chose multiple pictures</p>}
                          </div>
+                         {type === 'product' ? 
+                            <> 
+                            <select id="category" className="formInput">
+                                <option value="Burger">Burger</option>
+                                <option value="Shawarma">Shawarma</option>
+                                <option value="Chicken">Chicken</option>
+                                <option value="Fries" selected>Fries</option>
+                            </select>
+                         </> :''}
                          {inputs.map((inputs)=>(
                             <div className="formInput" key={inputs.id}>
                                 <label>{inputs.label}</label>
