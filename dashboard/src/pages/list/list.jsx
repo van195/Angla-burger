@@ -25,22 +25,28 @@ const List = ()=>{
 
         }
         fetchData();
-        newList();
     },[]);
-     const newList =()=>{
-            const activatedList = data?.find((items)=>{
-             return items.name === activated;
-            });
-            setActivatedNewList(activatedList?.products)
-        }
+    const newList =(categoryName)=>{
+            setActivated(categoryName);
+            const category = data.find(
+             item => item.name === categoryName
+            );
+        setActivatedNewList(category?.products || []);
+    }
+    useEffect(()=>{
+        if (!data?.length) return;
+        newList(activated);
+    },[data,activated]);
+    
     console.log(data);
+    console.log(activated);
     console.log(activatedNewList);
     return(
         <div className="list">
             <Sidebar/>
             <div className="listContainer">
                  <Navbar/>
-                 <ChoseProduct/>
+                 <ChoseProduct rowData={data}/>
                  <DataTable
                   data={activatedNewList}
                  />

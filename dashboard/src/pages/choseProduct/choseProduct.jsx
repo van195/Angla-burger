@@ -8,12 +8,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { foodCategory } from "../../util/container";
 import { useFoodContext } from "../../context/foodListContext";
-const ChoseProduct = ()=>{
+const ChoseProduct = ({rowData})=>{
     const {activated, setActivated}=useFoodContext();
     const handleClick = (categoryName)=>{
         setActivated(categoryName)
     }
     console.log(activated);
+    console.log(rowData);
     
     return(
         <div className="choseProduct">
@@ -21,9 +22,9 @@ const ChoseProduct = ()=>{
                     <div className="itemschoseProduct">
                         <h1>Products category</h1>
                         <div className="itemsChoseProductContainer" >
-                            { foodCategory.map((categoryName)=>(
-                            <button className={`rightHotel ${activated === categoryName && 'activatedButton' }`}  onClick={()=> handleClick(categoryName)}>
-                                {categoryName}
+                            { rowData?.map((category)=>(
+                            <button className={`rightHotel ${activated === category.name ? 'activatedButton' :'' }`}  onClick={()=> handleClick(category.name)}>
+                                {category.name}
                             </button>
                             ))}
                         </div>

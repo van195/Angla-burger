@@ -3,7 +3,6 @@ import Orders from "../models/orders.js";
 import Product from "../models/Product.js";
 import UserSchema from "../models/userSchema.js";
 import { createClerkClient } from "@clerk/express";
-
 const client = createClerkClient({
     secretKey: process.env.CLERK_SECRET_KEY,
 })
@@ -70,3 +69,24 @@ export const getSingleUsers =async (req,res)=>{
 
     }
 }
+
+
+export const dashboardStats = async (req, res) => {
+    try {
+        const [users, orders, earnings] = await Promise.all([
+            UserSchema.count(),
+            Orders.count(),
+            Orders.sum("total"),
+        ]);
+
+        res.json({
+            users,
+            orders,
+            earnings: earnings || 0,
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+};

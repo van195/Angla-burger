@@ -6,7 +6,7 @@ import ChecklistIcon from '@mui/icons-material/Checklist';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const Widget = ({type})=>{
+const Widget = ({type,rowData})=>{
     let data;
     const amount = 100;
     const diff = 20;
@@ -71,7 +71,7 @@ const Widget = ({type})=>{
         <div className="widget">
            <div className="left">
                <span className="title">{data.title}</span>
-               <span className="counter">{data.isMoney && "$"} {amount}</span>
+               <span className="counter">{data.isMoney && "$"} {rowData}</span>
                <span className="link">{data.link}</span>
            </div>
            <div className="right">
