@@ -9,6 +9,7 @@ import { CarInput, userInput,hotelInput } from './fromSource.js';
 import ChoseProduct from './pages/choseProduct/choseProduct.jsx';
 import UserList from './pages/CarList/userList.jsx';
 import OrderList from './pages/hotelLists/orderList.jsx';
+import OrderStatus from './pages/orderStatus/orderStatus.jsx';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
       <Route path="/products/new" element={<New inputs={CarInput} title="Add New Car" type='product'/>}/>
       <Route path="/products/:productId" element={<Single type={'product'}/>}/>
       <Route path="/orders" element={<OrderList/>}/>
-      <Route path="/orders/:ordersId" element={<Single/>}/>
+      <Route path="/orders/status" element={<OrderStatus/>}/>
     </Routes>
   </BrowserRouter>
    

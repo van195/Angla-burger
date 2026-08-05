@@ -11,7 +11,7 @@ import TrackingOrder from "./pages/trackingOrder/trackingOrder";
 const App = () => {
   //if(email) return <Home/>;
       const {user,isLoaded} = useUser();
-      const email = user?.emailAddresses[0].emailAddress;
+      const email = user?.emailAddresses[0]?.emailAddress;
   return (
     <>
     <AuthSync/>
@@ -29,7 +29,7 @@ const App = () => {
         element={<Register/>}
         />
         <Route
-        path='/login'
+        path='/login/*'
         element={<LogIn/>}
         />
         <Route

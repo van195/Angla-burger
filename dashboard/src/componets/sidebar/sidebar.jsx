@@ -45,15 +45,17 @@ const Sidebar = ()=>{
                         <span><ChecklistOutlinedIcon className="icon"/>Orders</span>
                     </li>
                     </Link>
-                    <Link to="/users" className="theLink">
+                    <Link to="/orders/delivered" className="theLink">
                     <li>
                         <span><LocalShippingOutlinedIcon className="icon"/>Delivery</span>
                     </li>
                     </Link>
                     <p className="title">USEFUL</p>
-                    <li>
-                        <span><AutorenewOutlinedIcon className="icon"/>Status</span>
-                    </li>
+                    <Link to="/orders/status" className="theLink">
+                        <li>
+                            <span><AutorenewOutlinedIcon className="icon"/>Status</span>
+                        </li>
+                    </Link>
                     <li>
                         <span><EditNotificationsOutlinedIcon className="icon"/>Notification</span>
                     </li>

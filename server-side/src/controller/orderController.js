@@ -4,6 +4,7 @@ import OrderItem from "../models/orderItem.js";
 import Orders from "../models/orders.js";
 import Product from "../models/Product.js";
 import UserSchema from "../models/userSchema.js";
+import { Op } from "sequelize";
 import { getSubtotalBill, getTaxBill, getTotalBill } from "../util/calculateTotal.js";
 
 export const createOrder = async (req,res,next)=>{
@@ -112,6 +113,63 @@ export const getAllOrders = async (req,res,next)=>{
    }
 
 }
+export const updateTheStatus = async (req,res,next)=>{
+    const {id} = req.params;
+   try {
+    const TheOrder = await Orders.findByPk(id);
+        await TheOrder.update(
+        {
+          showStatus:'complete',
+        },
+    );
+    if(TheOrder === 0){
+        return res.status(500).json('order not Found')
+    }
+    res.status(200).json(TheOrder)
+   } catch (error) {
+     console.log(error)
+    res.status(500).json({ message: error.message }); 
+   }
+
+}
+
+
+export const getMorningOrders = async (req, res) => {
+    try {
+        const today = new Date();
+
+        // Today at 6:00 AM
+        const start = new Date(today);
+        const end = new Date(today);
+        end.setHours(17, 0, 0, 0);
+        start.setHours(6, 0, 0, 0);
+
+        // Today at 1:00 PM
+    
+        const orders = await Orders.findAll({
+            where: {
+                paymentStatus: "paid",
+                createdAt: {
+                    [Op.between]: [start, end],
+                },
+            },
+            include: [
+                {
+                    model: OrderItem,
+                    include: [Product],
+                },
+                {
+                    model: Address,
+                },
+            ],
+            order: [["createdAt", "DESC"]],
+        });
+        res.status(200).json(orders);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: err.message });
+    }
+};
 /*const transaction = await sequelize.transaction();
 
 try {

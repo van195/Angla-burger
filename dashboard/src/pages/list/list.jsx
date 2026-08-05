@@ -37,10 +37,6 @@ const List = ()=>{
         if (!data?.length) return;
         newList(activated);
     },[data,activated]);
-    
-    console.log(data);
-    console.log(activated);
-    console.log(activatedNewList);
     return(
         <div className="list">
             <Sidebar/>

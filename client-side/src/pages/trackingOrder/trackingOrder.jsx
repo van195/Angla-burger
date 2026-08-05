@@ -82,7 +82,7 @@ const TrackingOrder = ()=>{
                         </div>
                        <div className="signals">
                             <div className="signalsContainer">
-                                <span className={showStatus?.showStatus === 'complete' ? 'onIt':showStatus?.showStatus === 'pending'?'notOnIt':'circle'}>
+                                <span className={`notOnIt ${showStatus?.showStatus === 'complete' ? 'onIt':showStatus?.showStatus === 'pending' ? 'notOnIt':'circle'}`}>
                                   {showStatus?.showStatus === 'cancel' ? <DoneOutlinedIcon style={{color:'#fff'}}/>:<LocalShippingOutlinedIcon style={{fontWeight:50,color:"#7d7777"}}/>}
                                 </span>
                                 <span className="straightLine">
