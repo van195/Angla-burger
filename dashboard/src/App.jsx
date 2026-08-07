@@ -10,14 +10,16 @@ import ChoseProduct from './pages/choseProduct/choseProduct.jsx';
 import UserList from './pages/CarList/userList.jsx';
 import OrderList from './pages/hotelLists/orderList.jsx';
 import OrderStatus from './pages/orderStatus/orderStatus.jsx';
+import SignUp from './pages/SignUp/signUp.jsx';
 
 function App() {
 
   return (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/login" element={<Login/>}/>
+      <Route path="/home" element={<Home/>}/>
+      <Route path="/sign-up" element={<SignUp/>}/>
+      <Route path="/" element={<Login/>}/>
       <Route path="/users" element={<UserList/>}/>
       <Route path="/users/new" element={<New inputs={userInput} title="Add New User" type='user'/>}/>
       <Route path="/users/:userId" element={<Single type={'user'}/>}/>

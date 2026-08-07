@@ -31,6 +31,42 @@ export const CreateAccount = async(req,res,next)=>{
         });
     }
 }
+export const createAdminUser = async(req,res,next)=>{
+    const {email,idNo,password} = req.body;
+    let role;
+    if(email || idNo || password){
+        return console.log('no form data has been got');
+    }
+    try {
+        const existUser = await UserSchema.findOne({
+            where:{
+                email:email
+            }
+        });
+        if(existUser) return res.status(401).json('this email exist please log in!')
+        if (idNo) {
+            const [prefix] = idNo.split("_");
+            if (
+                prefix === process.env.COMPANY_PREFIX &&
+                existUser.email
+            ) {
+                role = "admin";
+            }
+        }
+        const createUser = await UserSchema.create({
+            email:email,
+            clerkId:'user_3H0BEj3Pp60BT0dPzTls5cNb100',
+            role:role,
+        });
+        console.log('done');
+        return res.status(201).json('done')
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message:'failed to create account!'
+        });
+    }
+}
 export const getAllUsers =async (req,res)=>{
     try {
         const fetch = await UserSchema.findAll({});

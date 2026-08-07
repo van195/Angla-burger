@@ -1,10 +1,10 @@
-import "./login.scss";
+import "./signUp.scss";
 import abstaract from '../../assets/backgroundDecore.png'
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import axios from 'axios';
 import { AuthContext } from "../../context/authContext";
-const Login = ()=>{
+const SignUp = ()=>{
     const [ formData,setFormData ] = useState({
         email:'',
         password:'',
@@ -34,7 +34,7 @@ const Login = ()=>{
                 <img src={abstaract} alt="" />
             </div>
            <div className="loginContainer">
-              <h2>Please fill in your unique admin login details below</h2>
+              <h2>Please fill in your unique admin sign Up details below</h2>
               <div className="theInputs">
                 <label >Email address</label>
                 <input type="email"  value={formData.email} onChange={(e)=>setFormData({...formData, email:e.target.value})}/>
@@ -43,12 +43,12 @@ const Login = ()=>{
                 <label >ID No.</label>
                 <input type="text"  value={formData.idNo} onChange={(e)=>setFormData({...formData, idNo:e.target.value})}/>
               </div>
-              <p className="doNotHaveAccount">Don't Have An Account? <Link to='/sign-up' style={{textDecoration:'none',color: '#000'}} >Sign Up</Link></p>
+              <p className="doNotHaveAccount">I already Have An Account? <Link to='/' style={{textDecoration:'none',color: '#000'}} >Sign In</Link></p>
               <button className="signUpButton" onClick={()=>handleClick()}>
-                Sign In
+                Sign Up
               </button>
            </div>
         </div>
     )
 }
-export default Login;
+export default SignUp;
