@@ -16,7 +16,7 @@ const Login = ()=>{
     const handleClick = async ()=>{
         dispatch({ type:"LOGIN_START"});
         try {
-            const res = await axios.post('http://localhost:8080/api/user/createAdmin-user',{
+            const res = await axios.post('http://localhost:8080/api/users/createAdmin-user',{
                 email:formData.email,
                 password:formData.password,
                 idNo:formData.idNo
@@ -44,7 +44,7 @@ const Login = ()=>{
                 <input type="text"  value={formData.idNo} onChange={(e)=>setFormData({...formData, idNo:e.target.value})}/>
               </div>
               <p className="doNotHaveAccount">Don't Have An Account? <Link to='/sign-up' style={{textDecoration:'none',color: '#000'}} >Sign Up</Link></p>
-              <button className="signUpButton" onClick={()=>handleClick()}>
+              <button className="signUpButton" onClick={handleClick}>
                 Sign In
               </button>
            </div>

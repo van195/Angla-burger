@@ -3,6 +3,7 @@ import abstaract from '../../assets/backgroundDecore.png'
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import axios from 'axios';
+import Loading from '../../componets/loading/loading'
 import { AuthContext } from "../../context/authContext";
 const SignUp = ()=>{
     const [ formData,setFormData ] = useState({
@@ -16,13 +17,13 @@ const SignUp = ()=>{
     const handleClick = async ()=>{
         dispatch({ type:"LOGIN_START"});
         try {
-            const res = await axios.post('http://localhost:8080/api/user/createAdmin-user',{
+            const res = await axios.post('http://localhost:8080/api/users/createAdmin-user',{
                 email:formData.email,
                 password:formData.password,
                 idNo:formData.idNo
             })
             dispatch({ type:"LOGIN_SUCCESS", payload: {user: res.data, token: res.data.token}});
-            navigator("/");
+            navigator("/home");
         } catch (error) {
             setError(error);
         }
@@ -45,8 +46,9 @@ const SignUp = ()=>{
               </div>
               <p className="doNotHaveAccount">I already Have An Account? <Link to='/' style={{textDecoration:'none',color: '#000'}} >Sign In</Link></p>
               <button className="signUpButton" onClick={()=>handleClick()}>
-                Sign Up
+                {loading ? <Loading/> : 'Sign Up'}
               </button>
+              <p>{error?.response.data}</p>
            </div>
         </div>
     )

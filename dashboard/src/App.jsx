@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Home from './pages/home/home.jsx';
 import Login from './pages/login/login.jsx';
 import List from './pages/list/list.jsx';
@@ -11,9 +11,11 @@ import UserList from './pages/CarList/userList.jsx';
 import OrderList from './pages/hotelLists/orderList.jsx';
 import OrderStatus from './pages/orderStatus/orderStatus.jsx';
 import SignUp from './pages/SignUp/signUp.jsx';
+import { AuthContext } from './context/authContext.jsx';
 
 function App() {
-
+  const{ token,user, dispatch, loading} = useContext(AuthContext);
+  //if(token) return <Home/>;
   return (
   <BrowserRouter>
     <Routes>
