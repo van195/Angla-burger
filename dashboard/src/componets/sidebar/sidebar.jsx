@@ -17,14 +17,14 @@ const Sidebar = ()=>{
     return(
         <div className="sidebar">
             <div className="top">
-                <Link to="/" style={{textDecoration:"none"}}>
+                <Link to="/home" style={{textDecoration:"none"}}>
                  <span className="logo"><img src="/images.png" alt="" style={{width:'50px',height:'50px',objectFit:'cover'}} /></span>
                 </Link>
             </div>
             <div className="center">
                 <ul>
                      <p className="title">MAIN</p>
-                    <Link to="/" style={{textDecoration:"none"}}>
+                    <Link to="/home" style={{textDecoration:"none"}}>
                     <li>
                         <span><DashboardOutlinedIcon className="icon"/> Dashboard</span>
                     </li>

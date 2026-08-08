@@ -54,7 +54,7 @@ export const CarInput = [
     {
         id:"2",
         label:"Description",
-        name:"name",
+        name:"description",
         type:"text",
         paceholdre:"description..."
     },

@@ -3,12 +3,22 @@ import Product from "../models/Product.js"
 import { Op } from "sequelize";
 export const createProduct = async(req,res,next)=>{
     try {
-        const {name,description,price,categoryId}=req.body;
+        const {name,description,price,category,image}=req.body;
+        if( !name, !price, !category, !image){
+            return  res.status(404).json('no items found')
+        }
+        const categoryId = await Category.findOne({
+            where:{
+                name:category
+            }
+        })
+        if(!categoryId)return res.status(404).json('no category found')
         const create = await Product.create({
             name,
             description,
             price,
-            categoryId,
+            categoryId:categoryId.id,
+            image
         })
         return res.status(201).json('done');
     } catch (err) {

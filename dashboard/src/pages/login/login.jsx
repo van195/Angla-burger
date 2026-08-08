@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import axios from 'axios';
 import { AuthContext } from "../../context/authContext";
+import Loading from "../../componets/loading/loading";
 const Login = ()=>{
     const [ formData,setFormData ] = useState({
         email:'',
@@ -11,23 +12,27 @@ const Login = ()=>{
         idNo:''
     });
     const [error,setError] = useState(null)
+    const [theData,setTheData] = useState(null)
     const{ token,user, dispatch, loading} = useContext(AuthContext);
     const navigator = useNavigate()
     const handleClick = async ()=>{
         dispatch({ type:"LOGIN_START"});
         try {
-            const res = await axios.post('http://localhost:8080/api/users/createAdmin-user',{
+            const res = await axios.post('http://localhost:8080/api/users/loginAdmin-user',{
                 email:formData.email,
                 password:formData.password,
                 idNo:formData.idNo
             })
-            dispatch({ type:"LOGIN_SUCCESS", payload: {user: res.data, token: res.data.token}});
-            navigator("/");
+            setTheData(res.data)
+            dispatch({ type:"LOGIN_SUCCESS", payload: {user: res.data, token: res.data}});
+            navigator("/home");
         } catch (error) {
             setError(error);
         }
     }
     console.log(error)
+    console.log( token)
+    console.log( theData)
     return(
         <div className="login">
             <div className="backgroundDecores">
@@ -45,8 +50,9 @@ const Login = ()=>{
               </div>
               <p className="doNotHaveAccount">Don't Have An Account? <Link to='/sign-up' style={{textDecoration:'none',color: '#000'}} >Sign Up</Link></p>
               <button className="signUpButton" onClick={handleClick}>
-                Sign In
+               {loading ? <Loading/> : 'Sign In'}
               </button>
+              <p>{error?.response?.data}</p>
            </div>
         </div>
     )

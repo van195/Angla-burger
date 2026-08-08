@@ -85,6 +85,58 @@ export const createAdminUser = async(req,res,next)=>{
         });
     }
 }
+export const loginAdminUser = async(req,res,next)=>{
+    const {email,idNo,password} = req.body;
+    let role;
+    if(!email || !idNo || !password){
+       return res.status(400).json({
+        message: "Email, ID number and password are required"
+    });
+    }
+    try {
+        const existUser = await UserSchema.findOne({
+            where:{
+                email:email
+            }
+        });
+        if(!existUser) return res.status(409).json('this email does not exist please sign up!')
+        if (idNo) {
+            const [prefix] = idNo.split("_");
+            if (prefix !== process.env.COMPANY_PREFIX) {
+                return res.status(403).json({
+                    message: "Invalid admin ID"
+                });
+            }
+            if (prefix === process.env.COMPANY_PREFIX ) {
+                role = "admin";
+            }
+            
+        }
+
+        if(existUser.role !== role){
+            return res.status(403).json({
+                    message: "Invalid email or ID"
+            });
+        }
+            const token = jwt.sign(
+                {
+                    id: existUser.id,
+                    role: existUser.role
+                },
+                process.env.JWT_SECRET,
+                {
+                    expiresIn: "1d"
+                }
+            );
+        
+        return res.status(200).json(token);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message:'failed to create account!'
+        });
+    }
+}
 export const getAllUsers =async (req,res)=>{
     try {
         const fetch = await UserSchema.findAll({});
