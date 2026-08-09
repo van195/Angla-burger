@@ -12,6 +12,8 @@ import OrderList from './pages/hotelLists/orderList.jsx';
 import OrderStatus from './pages/orderStatus/orderStatus.jsx';
 import SignUp from './pages/SignUp/signUp.jsx';
 import { AuthContext } from './context/authContext.jsx';
+import { Navigate } from "react-router-dom";
+import ProtectRoute from './util/protectRoute.jsx';
 
 function App() {
   const{ token,user, dispatch, loading} = useContext(AuthContext);
@@ -19,17 +21,38 @@ function App() {
   return (
   <BrowserRouter>
     <Routes>
-      <Route path="/home" element={<Home/>}/>
+      <Route path="/home" element={
+        <ProtectRoute>
+          <Home/>
+        </ProtectRoute> }/>
       <Route path="/sign-up" element={<SignUp/>}/>
-      <Route path="/" element={<Login/>}/>
-      <Route path="/users" element={<UserList/>}/>
-      <Route path="/users/new" element={<New inputs={userInput} title="Add New User" type='user'/>}/>
+      <Route path="/" element={token ? <Navigate to='/home' replace/>:<Login/>}/>
+      <Route path="/users" element={
+        <ProtectRoute>
+          <UserList/>
+        </ProtectRoute> }/>
+      <Route path="/users/new" element={
+        <ProtectRoute>
+          <New inputs={userInput} title="Add New User" type='user'/>
+        </ProtectRoute> }/>
       <Route path="/users/:userId" element={<Single type={'user'}/>}/>
-      <Route path="/products" element={<List/>}/>
-      <Route path="/products/new" element={<New inputs={CarInput} title="Add New Car" type='product'/>}/>
+      <Route path="/products" element={
+        <ProtectRoute>
+          <List/>
+        </ProtectRoute> }/>
+      <Route path="/products/new" element={
+        <ProtectRoute>
+           <New inputs={CarInput} title="Add New Car" type='product'/>
+        </ProtectRoute>}/>
       <Route path="/products/:productId" element={<Single type={'product'}/>}/>
-      <Route path="/orders" element={<OrderList/>}/>
-      <Route path="/orders/status" element={<OrderStatus/>}/>
+      <Route path="/orders" element={
+        <ProtectRoute>
+          <OrderList/>
+        </ProtectRoute> }/>
+      <Route path="/orders/status" element={
+        <ProtectRoute>
+          <OrderStatus/>
+        </ProtectRoute> }/>
     </Routes>
   </BrowserRouter>
    
