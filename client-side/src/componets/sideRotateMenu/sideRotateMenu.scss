@@ -84,3 +84,10 @@
         }
     }
 }
+@media (max-width : 500px) {
+    .sideRotateMenuContainer{
+        display: flex;
+        flex-direction: column;
+        
+    }
+}

@@ -86,3 +86,10 @@
         }
     }
 }
+@media (max-width:500px) {
+    .theBottom{
+        display: flex;
+        flex-direction: column ;
+        padding: 10px;
+    }
+}

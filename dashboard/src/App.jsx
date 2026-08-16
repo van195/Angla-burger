@@ -17,7 +17,6 @@ import ProtectRoute from './util/protectRoute.jsx';
 
 function App() {
   const{ token,user, dispatch, loading} = useContext(AuthContext);
-  //if(token) return <Home/>;
   return (
   <BrowserRouter>
     <Routes>

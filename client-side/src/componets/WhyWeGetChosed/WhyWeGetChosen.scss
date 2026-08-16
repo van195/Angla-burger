@@ -7,8 +7,6 @@
         width: 100%;
         height: 88%;
         text-align: center;
-                    /*overflow-y: hidden;*/
-
         h1{
             font-family: "Orbitron", sans-serif;
             font-weight: 900;
@@ -65,6 +63,55 @@
                     }
                 }
             }
+        }
+    }
+}
+@media (max-width : 500px) {
+    .WhyWeGetChosen{
+        width: 100vw;
+        height: 100vh;
+    }
+    .WhyWeGetChosenContainer{
+        width: 100%;
+        height: 88%;
+        text-align: center;
+    }
+    .theFourCardLayout{
+       width: 100%;
+       height: 50%;
+       margin-top: -230px;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, auto) !important;
+
+        justify-items: center;
+        align-items: center;
+
+        gap: 4px;
+
+        /* REMOVE SCALE */
+          scale: .5;
+        /* Reset flex behavior from desktop */
+        flex-direction: unset;
+        justify-content: unset;
+        .layers{
+            margin-top: -90px;
+            &:hover{
+                transform: scale(1.04);
+            }
+            height: 70px;
+            background-color: #404112;
+            .cardImages{
+                    width: 100%;
+                    height: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                    
+                }
         }
     }
 }
