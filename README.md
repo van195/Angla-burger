@@ -991,3 +991,5 @@ AI / LLM Integration
 Feel free to explore the source code, architecture, and implementation details.
 
 If you're looking for a developer to build a similar **e-commerce, restaurant ordering, management dashboard, or full-stack web application**, feel free to get in touch.
+the preview 
+https://youtu.be/XWfpw4fmREk
