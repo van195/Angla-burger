@@ -48,10 +48,12 @@ const NavBar =({buttonType})=>{
                 </ul>
               </div>
               <div className="callOfActionSection">
+                <Link to={'/login'}>
                  <button className="cia">
                     <h1>Order Now</h1>
                     <span className="theArrow"><ArrowForwardOutlinedIcon/></span>
                  </button>
+                </Link>
               </div>
             </div>
             }

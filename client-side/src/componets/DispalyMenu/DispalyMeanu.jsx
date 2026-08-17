@@ -22,9 +22,7 @@ const DisplayMenu = ()=>{
             setActivatedList(burger.products);
             newList(activated)
         }
-      }, [data]);
-      console.log(data);
-      
+      }, [data]);      
       const addToCart = (item)=>{
         if(!item) return;
         setFoodList(prev => [...prev,

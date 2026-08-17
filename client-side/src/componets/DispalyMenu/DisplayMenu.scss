@@ -246,3 +246,17 @@
         }
     }
 }
+@media (max-width:500px) {
+    .DisplayMenu{
+        margin-top: -530px !important;
+        .DisplayMenuContainer{
+            margin-top: -90px !important;
+            .searchContainer{
+                .searchIdentifire{
+                    z-index: 14;
+                }
+            }
+        }
+
+    }
+}

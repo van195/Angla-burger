@@ -9,12 +9,8 @@ const KnowMore = ()=>{
           return setActive('active')
         }else{
           return setActive(null)
-
         }
     },[])
-    console.log(active);
-    console.log(open);
-    
     return(
         <div className="knowMore">
             <div className="knowMoreContainer">
