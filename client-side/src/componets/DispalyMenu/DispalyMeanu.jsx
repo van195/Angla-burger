@@ -9,11 +9,12 @@ import axios from 'axios';
 import useFetch from '../../util/useFetchHook';
 import Loading from '../loading/loading';
 const DisplayMenu = ()=>{
+      const API_URL = import.meta.env.VITE_API_URL;
       const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
       const {FoodLists,setFoodList} = useFoodContext()
       const [activated , setActivated] = useState('Burger');
       const [activatedList,setActivatedList] = useState([]);
-      const {loading, data,error} = useFetch('http://localhost:8080/api/category/list-category')    
+      const {loading, data,error} = useFetch(`${API_URL}/api/category/list-category`)    
       useEffect(() => {
         if (!data?.length) return;
         const burger = data.find(item => item.name === "Burger");

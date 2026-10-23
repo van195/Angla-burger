@@ -11,6 +11,7 @@ import useFetch from '../../util/useFetchHook';
 import { autoSearchLists } from '../containers/functionContainer';
 import { useFoodContext } from '../../context/foodContext';
 const SearchBar =()=>{
+    const API_URL = import.meta.env.VITE_API_URL;
     const {searchButtonClicked,setSearchButtonClicked} = useSearchContext();
     const [autoSearch , setAutoSearch] = useState('');
     const {FoodLists,setFoodList} = useFoodContext()
@@ -24,7 +25,7 @@ const SearchBar =()=>{
     }, [autoSearch]);
     const { data, loading } = useFetch(
     debouncedSearch
-        ? `http://localhost:8080/api/product/single-product?search=${debouncedSearch}`
+        ? `${API_URL}/api/product/single-product?search=${debouncedSearch}`
         : null
     );      
     const addToCart = (item)=>{

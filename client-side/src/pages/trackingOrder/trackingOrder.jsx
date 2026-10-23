@@ -8,13 +8,14 @@ import RoomServiceRoundedIcon from '@mui/icons-material/RoomServiceRounded';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 const TrackingOrder = ()=>{
+    const API_URL = import.meta.env.VITE_API_URL;
     const [showStatus,setShowStatus] = useState(null)
     const [error,setError] = useState(null)
     const { id } = useParams();
     useEffect(()=>{
         const fetch = async()=>{
             try {
-                const  orderDetail = await axios.get(`http://localhost:8080/api/order/single-order/${id}`);
+                const  orderDetail = await axios.get(`${API_URL}/api/order/single-order/${id}`);
                 setShowStatus(orderDetail.data);
             } catch (error) {
                 setError(error)

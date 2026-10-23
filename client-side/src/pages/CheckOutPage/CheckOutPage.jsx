@@ -9,6 +9,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useAuth, useClerk, useUser } from '@clerk/react';
 const CheckOutPage = ()=>{
+       const API_URL = import.meta.env.VITE_API_URL;
         const navigation = useNavigate()
         const { openSignIn } = useClerk();
         const {user,isLoaded} = useUser()
@@ -34,7 +35,7 @@ const CheckOutPage = ()=>{
            setLoading(true)
           try {
             const token = await getToken();
-            const addressRes = await axios.post('http://localhost:8080/api/address/create-address',
+            const addressRes = await axios.post(`${API_URL}/api/address/create-address`,
               formData,
               {
                 headers: {
@@ -43,7 +44,7 @@ const CheckOutPage = ()=>{
               })
             const addressId = addressRes.data;
             if(!addressId) return;
-            const OrderRes = await  axios.post('http://localhost:8080/api/order/create-order',
+            const OrderRes = await  axios.post(`${API_URL}/api/order/create-order`,
               { 
                 FoodList:FoodLists,
                 addressId:addressId,
@@ -55,7 +56,7 @@ const CheckOutPage = ()=>{
               });
               setTheId(OrderRes);
             if(!OrderRes) return;
-            const res = await axios.post("http://localhost:8080/api/payment/create-payment",
+            const res = await axios.post(`${API_URL}/api/order/create-order/api/payment/create-payment`,
               { 
                 orderId:OrderRes?.data.id,
               },
