@@ -88,7 +88,7 @@ const CheckOutPage = ()=>{
           <div className="theHeader">
               <img src={images.Spiral} className='Spiral' alt="" />
               <Link to='/home'>
-              <ArrowForwardIosOutlinedIcon className='goBack'/>
+               <ArrowForwardIosOutlinedIcon className='goBack'/>
               </Link>
               <div className="theHeaderContainer">
                   <div className="cart">

@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
 import './sideRotateMenu.scss';
+import React, { useRef } from 'react'
 import InfiniteSideScroll from '../infinitySideScroll/InfiniteSideScroll';
 import images from '../../componets/containers/container'
 import { useGSAP } from '@gsap/react';
