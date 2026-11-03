@@ -57,7 +57,7 @@ const CheckOutPage = ()=>{
               });
               setTheId(OrderRes);
             if(!OrderRes) return;
-            const res = await axios.post(`${API_URL}/api/order/create-order/api/payment/create-payment`,
+            const res = await axios.post(`${API_URL}api/payment/create-payment`,
               { 
                 orderId:OrderRes?.data.id,
               },
