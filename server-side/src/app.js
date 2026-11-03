@@ -11,14 +11,32 @@ import { clerkMiddleware } from "@clerk/express";
 const app = express();
     app.use(express.json());
     app.use(helmet());
+    const allowedOrigins = [
+    "http://localhost:5173",
+    "https://angla-burger-restaurant.netlify.app",
+    ];
+
     app.use(cors({
-    origin: [
-        "http://localhost:5173",
-        "http://localhost:5174",
-       " https://angla-burger-restaurant.netlify.app"
-    ],
-    credentials: true
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        } else {
+        callback(new Error("Not allowed by CORS"));
+        }
+    },
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     }));
+
+    app.options("*", cors());
+        app.use(cors({
+        origin: [
+            "http://localhost:5173",
+            "http://localhost:5174",
+        " https://angla-burger-restaurant.netlify.app"
+        ],
+        credentials: true
+        }));
     app.use(clerkMiddleware());
     app.use('/api/users',user);
     app.use('/api/category',Category);
