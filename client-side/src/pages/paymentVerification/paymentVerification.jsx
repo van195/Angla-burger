@@ -11,7 +11,7 @@ export default function PaymentSuccess() {
             const tx_ref = searchParams.get("tx_ref");
             if (!tx_ref) return;
             const res = await axios.get(
-                `${API_URL}L/api/payment/verify/${tx_ref}`
+                `${API_URL}/api/payment/verify/${tx_ref}`
             );            
             if(res?.data.data.status === "success" && res?.status === 200) {
              return navigation(`/trackingOrder/${res?.data.orderId}`)
