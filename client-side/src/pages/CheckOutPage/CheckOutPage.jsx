@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useAuth, useClerk, useUser } from '@clerk/react';
 const CheckOutPage = ()=>{
        const API_URL = import.meta.env.VITE_API_URL;
+       console.log(API_URL)
         const navigation = useNavigate()
         const { openSignIn } = useClerk();
         const {user,isLoaded} = useUser()
@@ -66,15 +67,15 @@ const CheckOutPage = ()=>{
                 },
               }
             );
-            console.log(res);
+            console.log('payment created',res);
             if (res.data.status !== "success") {
-             alert("Unable to initialize payment");
-             return;
+              alert("Unable to initialize payment");
+              return;
             }
             window.location.href = res?.data.data.checkout_url;
+            console.log('the URL created', window.location.href = res?.data.data.checkout_url);
           } catch (error) {
-             setError(error);
-
+            setError(error);
           }finally{
             setLoading(false);
           }
