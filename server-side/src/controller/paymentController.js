@@ -26,7 +26,7 @@ export const initializePayment = async (req, res, next)=>{
                 currency: "ETB",
                 tx_ref:tx_ref,
                 callback_url: "http://localhost:8080/api/payment/webhook",
-                return_url: `http://localhost:5173/payment-success?tx_ref=${tx_ref}`,                customization: {
+                return_url: `https://angla-burger-restaurant.netlify.app/payment-success?tx_ref=${tx_ref}`,                customization: {
                     title: "Angla Burger",
                     description: "Food Order"
                 }
@@ -54,7 +54,7 @@ export const initializePayment = async (req, res, next)=>{
 
 }
 
-export const verifyPayment = async (req, res) => {
+export const  verifyPayment = async (req, res) => {
     const { tx_ref } = req.params;
     try {
         const { data } = await axios.get(
