@@ -8,6 +8,7 @@ import { getTotalBill } from '../../componets/containers/functionContainer';
 import { useState } from 'react';
 import axios from 'axios';
 import { useAuth, useClerk, useUser } from '@clerk/react';
+import Notification from '../../../../dashboard/src/componets/notifications/notifications';
 const CheckOutPage = ()=>{
        const API_URL = import.meta.env.VITE_API_URL;
        console.log(API_URL)
@@ -87,6 +88,7 @@ const CheckOutPage = ()=>{
     return(
       <div className="checkOutPage">
         { loading ? <Loading/> : <>
+         {error && <Notification type='cancel' title='network error! try again'/>}
           <div className="theHeader">
               <img src={images.Spiral} className='Spiral' alt="" />
               <Link to='/home'>
