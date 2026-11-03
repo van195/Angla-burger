@@ -11,7 +11,6 @@ import { useAuth, useClerk, useUser } from '@clerk/react';
 import Notification from '../../../../dashboard/src/componets/notifications/notifications';
 const CheckOutPage = ()=>{
        const API_URL = import.meta.env.VITE_API_URL;
-       console.log(API_URL)
         const navigation = useNavigate()
         const { openSignIn } = useClerk();
         const {user,isLoaded} = useUser()
