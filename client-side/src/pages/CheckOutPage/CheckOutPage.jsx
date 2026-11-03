@@ -8,7 +8,7 @@ import { getTotalBill } from '../../componets/containers/functionContainer';
 import { useState } from 'react';
 import axios from 'axios';
 import { useAuth, useClerk, useUser } from '@clerk/react';
-import Notification from '../../../../dashboard/src/componets/notifications/notifications';
+import Notification from '../../componets/notifications/notifications';
 const CheckOutPage = ()=>{
        const API_URL = import.meta.env.VITE_API_URL;
         const navigation = useNavigate()
